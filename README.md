@@ -9,6 +9,7 @@ Please email me [carmelo.evoli@gssi.it] or make a pull request if you would like
 ### Spectrum plot
 
 <img src="plots/The_CR_Spectrum_2020.png" width="800">
+
 Download: [png](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/plots/The_CR_Spectrum_2020.png), [pdf](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/plots/The_CR_Spectrum_2020.pdf)
 
 ### Data
