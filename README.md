@@ -2,7 +2,6 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4309926.svg)](https://doi.org/10.5281/zenodo.4309926)
 
 # The Cosmic Ray Spectrum (2020)
-The Cosmic Ray spectrum plot.
 
 Please email me [carmelo.evoli@gssi.it] or make a pull request if you would like any dataset being added.
 
