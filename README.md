@@ -5,6 +5,12 @@
 
 Please email me [carmelo.evoli@gssi.it] or make a pull request if you would like any dataset being added.
 
+For the collection of the CR data I'm pleased to acknowledge the use of the following repositories:
+
+* [CRDB database](http://lpsc.in2p3.fr/crdb) ([reference](https://ui.adsabs.harvard.edu/abs/2014A%26A...569A..32M/abstract))
+* [ASI CR database](https://tools.ssdc.asi.it/CosmicRays/) ([reference](https://pos.sissa.it/301/1073/pdf))
+* [KASCADE Cosmic Ray Data Centre](https://kcdc.ikp.kit.edu)
+
 ### <a name="crspectrum"></a>
 ### Spectrum plot
 
