@@ -1,4 +1,6 @@
 #Python files
+OLD/
+original_data/
 *~
 *.pyc
 *.DS_Store

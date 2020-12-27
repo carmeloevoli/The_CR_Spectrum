@@ -16,7 +16,7 @@ def MySaveFig(fig, pltname, pngsave=False):
 class TheCrSpectrum():
     cAMS02 = 'forestgreen'
     cAUGER = 'steelblue'
-    cBESS = 'y'
+    cBESS = 'yellowgreen'
     cCALET = 'darkcyan'
     cCREAM = 'r'
     cDAMPE = 'm'
@@ -24,14 +24,16 @@ class TheCrSpectrum():
     cHAWC = 'slategray'
     cHESS = 'darkorchid'
     cICECUBE = 'salmon'
-    cICETOP = 'seagreen'
     cICETOP_ICECUBE = 'c'
     cKASCADEGrande = 'goldenrod'
-    cKASCADE = 'goldenrod'
+    cKASCADE = 'darkgoldenrod'
+    cNUCLEON = 'sienna'
     cPAMELA = 'darkorange'
     cTA = 'crimson'
     cTIBET = 'indianred'
-
+    cTUNKA = 'hotpink'
+    cVERITAS = 'seagreen'
+    
     def __init__(self):
          print ("Calling TheCrSpectrum constructor")
     
@@ -68,10 +70,10 @@ class TheCrSpectrum():
         ax2.tick_params(axis='x', colors='tab:blue')
     
     def plot_line(self, ax, filename, color):
-        E, dJdE = np.loadtxt(filename,skiprows=3,usecols=(0,1),unpack=True)
+        E, dJdE = np.loadtxt(filename,skiprows=7,usecols=(0,1),unpack=True)
         ax.plot(E, np.power(E, 2.0) * dJdE, color=color)
         
-    def plot_data(self, ax, filename, fmt, color):
+    def plot_data(self, ax, filename, fmt, color, zorder=1):
         E, dJdE, err_low, err_high = np.loadtxt(filename,skiprows=3,usecols=(0,1,2,3),unpack=True)
         size = len(E)
         for i in range(size):
@@ -79,9 +81,9 @@ class TheCrSpectrum():
             dJdE_err = .5 * (err_low[i] + err_high[i])
             yerr = np.power(E[i], 2.0) * dJdE_err
             if (yerr < y):
-                ax.errorbar(E[i], y, yerr=yerr, fmt=fmt, markeredgecolor=color, color=color, elinewidth=2, capthick=2) # , label=label)
-            else:
-                ax.errorbar(E[i], y, yerr=0.4*y, uplims=True, fmt=fmt, markeredgecolor=color, color=color, elinewidth=2, capsize=0)
+                ax.errorbar(E[i], y, yerr=yerr, fmt=fmt, markeredgecolor=color, color=color, elinewidth=2, capthick=2, zorder=zorder)
+            #else:
+            #    ax.errorbar(E[i], y, yerr=0.4*y, uplims=True, fmt=fmt, markeredgecolor=color, color=color, elinewidth=2, capsize=0)
 
     def annotate(self, ax):
         E_LHC = 2. * np.power(13e3, 2) / 0.938
@@ -99,19 +101,19 @@ class TheCrSpectrum():
         EdNdE = 1. # 1 m2/s
         E2dNdEdOmega = E * EdNdE / 4. / math.pi
         ax.text(0.4e4, 0.8e3, r'1/m$^2$/s', fontsize=16, color='tab:gray', rotation=50)
-        ax.fill_between(E, E2dNdEdOmega, 1e4, alpha=0.14, lw=0,
+        ax.fill_between(E, E2dNdEdOmega, 1e4, alpha=0.12, lw=0,
                         facecolor='tab:gray', edgecolor='tab:gray')
 
         EdNdE = 1. / 3.14e7 # 1 m2/yr
         E2dNdEdOmega = E * EdNdE / 4. / math.pi
         ax.text(4e10, 0.3e3, r'1/m$^2$/yr', fontsize=16, color='tab:gray', rotation=50)
-        ax.fill_between(E, E2dNdEdOmega, 1e4, alpha=0.14, lw=0,
+        ax.fill_between(E, E2dNdEdOmega, 1e4, alpha=0.12, lw=0,
                         facecolor='tab:gray', edgecolor='tab:gray')
 
         EdNdE = 1. / 3.14e7 / 1e6 # 1 km2/yr
         E2dNdEdOmega = E * EdNdE / 4. / math.pi
         ax.text(2.25e10, 1.6e-4, r'1/km$^2$/yr', fontsize=16, color='tab:gray', rotation=50)
-        ax.fill_between(E, E2dNdEdOmega, 1e4, alpha=0.14, lw=0,
+        ax.fill_between(E, E2dNdEdOmega, 1e4, alpha=0.12, lw=0,
                         facecolor='tab:gray', edgecolor='tab:gray')
 
         ax.fill_between(E, E2dNdEdOmega, 1e-10, alpha=0.06, lw=0,
@@ -119,7 +121,7 @@ class TheCrSpectrum():
 
         ax.text(0.5e2, 6e0, r'$e^-$+$e^+$', fontsize=22)
         ax.text(0.85e1, 2e0, r'$e^+$', fontsize=22)
-        ax.text(2.7, 1.1e-2, r'$\bar{p}$', fontsize=22)
+        ax.text(2.2, 1.4e-2, r'$\bar{p}$', fontsize=22)
         ax.text(7, 0.7e3, r'$p$', fontsize=22)
         ax.text(0.5e7, 3e-5, r'$\nu + \bar{\nu}$', fontsize=21)
         ax.text(0.5e2, 2e-2, r'$\gamma$', fontsize=21)
@@ -128,73 +130,80 @@ class TheCrSpectrum():
         #ax.text(5.5e8, 1e-2, r'$\sim E^{-3.1}$')
     
     def ypos(self, i):
-        f_text = 2.025
-        return 0.075 * pow(f_text, i)
+        f_text = 1.90
+        return 0.020 * pow(f_text, i)
         
     def experiment_legend(self, ax):
-        font_size = 14
-        ax.text(1.1e9, self.ypos(15), 'AMS-02', color=self.cAMS02, fontsize=font_size)
-        ax.text(1.1e9, self.ypos(14), 'AUGER', color=self.cAUGER, fontsize=font_size)
-        ax.text(1.1e9, self.ypos(13), 'BESS', color=self.cBESS, fontsize=font_size)
-        ax.text(1.1e9, self.ypos(12), 'CALET', color=self.cCALET, fontsize=font_size)
-        ax.text(1.1e9, self.ypos(11), 'CREAM', color=self.cCREAM, fontsize=font_size)
-        ax.text(1.1e9, self.ypos(10), 'DAMPE', color=self.cDAMPE, fontsize=font_size)
-        ax.text(1.1e9, self.ypos(9), 'FERMI', color=self.cFERMI, fontsize=font_size)
-        ax.text(1.1e9, self.ypos(8), 'HAWC', color=self.cHAWC, fontsize=font_size)
-        ax.text(1.1e9, self.ypos(7), 'HESS', color=self.cHESS, fontsize=font_size)
-        ax.text(1.1e9, self.ypos(6), 'ICECUBE', color=self.cICECUBE, fontsize=font_size)
-        ax.text(1.1e9, self.ypos(5), 'ICETOP', color=self.cICETOP, fontsize=font_size)
-        ax.text(1.1e9, self.ypos(4), 'ICETOP+ICECUBE', color=self.cICETOP_ICECUBE, fontsize=font_size)
-        ax.text(1.1e9, self.ypos(3), 'KASCADE-Grande', color=self.cKASCADEGrande, fontsize=font_size)
-        ax.text(1.1e9, self.ypos(2), 'PAMELA', color=self.cPAMELA, fontsize=font_size)
-        ax.text(1.1e9, self.ypos(1), 'Telescope Array', color=self.cTA, fontsize=font_size)
-        ax.text(1.1e9, self.ypos(0), 'Tibet-III', color=self.cTIBET, fontsize=font_size)
+        font_size = 13
+        ax.text(1.1e9, self.ypos(18), 'AMS-02', color=self.cAMS02, fontsize=font_size)
+        ax.text(1.1e9, self.ypos(17), 'AUGER', color=self.cAUGER, fontsize=font_size)
+        ax.text(1.1e9, self.ypos(16), 'BESS', color=self.cBESS, fontsize=font_size)
+        ax.text(1.1e9, self.ypos(15), 'CALET', color=self.cCALET, fontsize=font_size)
+        ax.text(1.1e9, self.ypos(14), 'CREAM', color=self.cCREAM, fontsize=font_size)
+        ax.text(1.1e9, self.ypos(13), 'DAMPE', color=self.cDAMPE, fontsize=font_size)
+        ax.text(1.1e9, self.ypos(12), 'FERMI', color=self.cFERMI, fontsize=font_size)
+        ax.text(1.1e9, self.ypos(11), 'HAWC', color=self.cHAWC, fontsize=font_size)
+        ax.text(1.1e9, self.ypos(10), 'HESS', color=self.cHESS, fontsize=font_size)
+        ax.text(1.1e9, self.ypos(9), 'ICECUBE', color=self.cICECUBE, fontsize=font_size)
+        ax.text(1.1e9, self.ypos(8), 'ICETOP+ICECUBE', color=self.cICETOP_ICECUBE, fontsize=font_size)
+        ax.text(1.1e9, self.ypos(7), 'KASCADE', color=self.cKASCADE, fontsize=font_size)
+        ax.text(1.1e9, self.ypos(6), 'KASCADE-Grande', color=self.cKASCADEGrande, fontsize=font_size)
+        ax.text(1.1e9, self.ypos(5), 'NUCLEON', color=self.cNUCLEON, fontsize=font_size)
+        ax.text(1.1e9, self.ypos(4), 'PAMELA', color=self.cPAMELA, fontsize=font_size)
+        ax.text(1.1e9, self.ypos(3), 'Telescope Array', color=self.cTA, fontsize=font_size)
+        ax.text(1.1e9, self.ypos(2), 'Tibet-III', color=self.cTIBET, fontsize=font_size)
+        ax.text(1.1e9, self.ypos(1), 'TUNKA', color=self.cTUNKA, fontsize=font_size)
+        ax.text(1.1e9, self.ypos(0), 'VERITAS', color=self.cVERITAS, fontsize=font_size)
     
     def positrons(self, ax):
         pdir = 'data/positrons/'
-        self.plot_data(ax, pdir+'positrons_AMS02_kenergy.txt', 'o', self.cAMS02)
-        self.plot_data(ax, pdir+'positrons_PAMELA_kenergy.txt', 'o', self.cPAMELA)
-    
+        self.plot_data(ax, pdir+'e+_FERMI_Ek.txt', 'o', self.cFERMI, 1)
+        self.plot_data(ax, pdir+'e+_AMS-02_Ek.txt', 'o', self.cAMS02, 2)
+        self.plot_data(ax, pdir+'e+_PAMELA_Ek.txt', 'o', self.cPAMELA, 3)
+
     def antiprotons(self, ax):
         pdir = 'data/antiprotons/'
-        self.plot_data(ax, pdir+'Hbar_AMS02_kenergy.txt', 'o', self.cAMS02)
-        self.plot_data(ax, pdir+'Hbar_PAMELA_kenergy.txt', 'o', self.cPAMELA)
-        self.plot_data(ax, pdir+'Hbar_BESS_kenergy.txt', 'o', self.cBESS)
+        self.plot_data(ax, pdir+'H-bar_BESS_Ek.txt', 'o', self.cBESS, 3)
+        self.plot_data(ax, pdir+'H-bar_AMS-02_Ek.txt', 'o', self.cAMS02, 1)
+        self.plot_data(ax, pdir+'H-bar_PAMELA_Ek.txt', 'o', self.cPAMELA, 2)
 
     def leptons(self, ax):
         pdir = 'data/leptons/'
-        self.plot_data(ax, pdir+'leptons_AMS02_kenergy.txt', 'o', self.cAMS02)
-        self.plot_data(ax, pdir+'leptons_FERMI_kenergy.txt', 'o', self.cFERMI)
-        self.plot_data(ax, pdir+'leptons_CALET_kenergy.txt', 'o', self.cCALET)
-        self.plot_data(ax, pdir+'leptons_DAMPE_kenergy.txt', 'o', self.cDAMPE)
-        #ADD VERITAS AND HESS?
+        self.plot_data(ax, pdir+'leptons_AMS-02_Ek.txt', 'o', self.cAMS02, 1)
+        self.plot_data(ax, pdir+'leptons_FERMI_Etot.txt', 'o', self.cFERMI, 4)
+        self.plot_data(ax, pdir+'leptons_CALET_Etot.txt', 'o', self.cCALET, 3)
+        self.plot_data(ax, pdir+'leptons_DAMPE_Etot.txt', 'o', self.cDAMPE, 5)
+        self.plot_data(ax, pdir+'leptons_VERITAS_Etot.txt', 'o', self.cVERITAS, 2)
+        #ADD HESS DATA?
 
     def protons(self, ax):
         pdir = 'data/protons/'
-        self.plot_data(ax, pdir+'H_CALET_kenergy.txt', 's', self.cCALET)
-        self.plot_data(ax, pdir+'H_DAMPE_kenergy.txt', 's', self.cDAMPE)
-        self.plot_data(ax, pdir+'H_CREAM_kenergy.txt', 's', self.cCREAM)
-        self.plot_data(ax, pdir+'H_BESS_kenergy.txt', 's', self.cBESS)
-        self.plot_data(ax, pdir+'H_AMS02_E_2019.txt', 's', self.cAMS02)
-        self.plot_data(ax, pdir+'H_PAMELA_E_2011.txt', 's', self.cPAMELA)
-        #self.plot_data(ax, pdir+'H_AUGER_QGSJET-II-04_E_2019.txt', 's', self.cAUGER)
-        self.plot_data(ax, pdir+'H_KASCADE-Grande-SIBYLL-2.3_E_2017.txt', 's', self.cKASCADEGrande)
-        self.plot_data(ax, pdir+'H_KASCADE-SIBYLL-2.1_E_2005.txt', 's', self.cKASCADE)
-        self.plot_data(ax, pdir+'H_ICETOP_E_2019.txt', 's', self.cICETOP)
+        self.plot_data(ax, pdir+'H_KASCADE_2005_SIBYLL-2.1_Etot.txt', 'P', self.cKASCADE)
+        self.plot_data(ax, pdir+'H_BESS-TeV_Ek.txt', 'P', self.cBESS)
+        self.plot_data(ax, pdir+'H_PAMELA_Ek.txt', 'P', self.cPAMELA)
+        self.plot_data(ax, pdir+'H_AMS-02_Ek.txt', 'P', self.cAMS02)
+        self.plot_data(ax, pdir+'H_CREAM-III_Ek.txt', 'P', self.cCREAM)
+        self.plot_data(ax, pdir+'H_KASCADEGrande_SIBYLL-2.3_Etot.txt', 'P', self.cKASCADEGrande)
+        self.plot_data(ax, pdir+'H_ICECUBE-ICETOP_Etot.txt', 'P', self.cICETOP_ICECUBE)
+        self.plot_data(ax, pdir+'H_NUCLEON_Etot.txt', 'P', self.cNUCLEON)
+        self.plot_data(ax, pdir+'H_CALET_Ek.txt', 'P', self.cCALET)
+        self.plot_data(ax, pdir+'H_DAMPE_Ek.txt', 'P', self.cDAMPE)
 
     def allparticle(self, ax):
         pdir = 'data/allparticle/'
-        self.plot_data(ax, pdir+'allparticle_AUGER_E_2019.txt', 'o', self.cAUGER)
-        self.plot_data(ax, pdir+'allparticle_TA_E_2017.txt', 'o', self.cTA)
-        self.plot_data(ax, pdir+'allparticle_TIBET_E_2008.txt', 'o', self.cTIBET)
-        self.plot_data(ax, pdir+'allparticle_HAWC_E_2017.txt', 'o', self.cHAWC)
-        self.plot_data(ax, pdir+'allparticle_ICETOP+ICECUBE_E_2019.txt', 'o', self.cICETOP_ICECUBE)
-        self.plot_data(ax, pdir+'allparticle_ICETOP_E_2019.txt', 'o', self.cICETOP)
-        self.plot_data(ax, pdir+'allparticle_KASCADE-Grande_SIBYLL-23_E_2017.txt', 'o', self.cKASCADEGrande)
-        #self.plot_data(ax, pdir+'allparticle_KASCADE_SIBYLL-21_E_2011.txt', 'o', self.c)
-        self.plot_line(ax, pdir+'allparticle_AMS02.txt', self.cAMS02)
-        self.plot_line(ax, pdir+'allparticle_CREAM.txt', self.cCREAM)
-    
+        self.plot_data(ax, pdir+'allparticle_AUGER_Etot.txt', 'o', self.cAUGER)
+        self.plot_data(ax, pdir+'allparticle_TA_Etot.txt', 'o', self.cTA)
+        self.plot_data(ax, pdir+'allparticle_TIBET_QGSJET+HD_Etot.txt', 'o', self.cTIBET)
+        self.plot_data(ax, pdir+'allparticle_HAWC_Etot.txt', 'o', self.cHAWC)
+        self.plot_data(ax, pdir+'allparticle_ICECUBE-ICETOP_SIBYLL-2.1_Etot.txt', 'o', self.cICETOP_ICECUBE)
+        self.plot_data(ax, pdir+'allparticle_KASCADEGrande_SIBYLL-2.3_Etot.txt', 'o', self.cKASCADEGrande)
+        self.plot_data(ax, pdir+'allparticle_KASCADE_SIBYLL-2.1_Etot.txt', 'o', self.cKASCADE)
+        self.plot_data(ax, pdir+'allparticle_NUCLEON_Etot.txt', 'o', self.cNUCLEON)
+        self.plot_data(ax, pdir+'allparticle_TUNKA-133_Etot.txt', 'o', self.cTUNKA)
+#        self.plot_data(ax, pdir+'allparticle_ICETOP_E_2019.txt', 'o', self.cICETOP)
+#        self.plot_line(ax, pdir+'allparticle_AMS02.txt', self.cAMS02)
+#        self.plot_line(ax, pdir+'allparticle_CREAM.txt', self.cCREAM)
+
     def gammas(self, ax):
         pdir = 'data/gammas/'
         E, y, y_err = np.loadtxt(pdir+'gamma_igrb_FERMI.txt',skiprows=3,usecols=(0,1,2),unpack=True)
