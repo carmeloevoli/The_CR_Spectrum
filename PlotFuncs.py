@@ -6,12 +6,9 @@ import numpy as np
 import math
 
 def MySaveFig(fig, pltname, pngsave=False):
-#    if pngsave:
-#        filename = pltname + '.png'
-#    else:
-#        filename = pltname + '.pdf'
     print ("Saving plot as " + pltname + ".pdf")
-    fig.savefig(pltname + '.png', bbox_inches='tight', dpi=300)
+    if pngsave:
+        fig.savefig(pltname + '.png', bbox_inches='tight', dpi=300)
     fig.savefig(pltname + '.pdf', bbox_inches='tight', dpi=300)
 
 class TheCrSpectrum():
@@ -233,5 +230,3 @@ class TheCrSpectrum():
         y_max = [1.2e-4, 8.8e-5]
         ax.fill_between(np.array(x), 3. * np.array(y_min), 3. * np.array(y_max), alpha=0.4, lw=2,
                         facecolor=color, edgecolor=color)
-
-
