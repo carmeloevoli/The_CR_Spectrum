@@ -48,7 +48,7 @@ Download: [png](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/plot
 * CALET: [data](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/data/leptons/leptons_CALET_Etot.txt), [reference](https://ui.adsabs.harvard.edu/abs/2018PhRvL.120z1102A)
 * DAMPE: [data](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/data/leptons/leptons_DAMPE_Etot.txt), [reference](https://ui.adsabs.harvard.edu/abs/2017Natur.552...63D)
 * FERMI: [data](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/data/leptons/leptons_FERMI_Etot.txt), [reference](https://ui.adsabs.harvard.edu/abs/2017PhRvD..95h2007A)
-* VERITAS: [data]https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/data/leptons/leptons_VERITAS_Etot.txt), [reference](https://ui.adsabs.harvard.edu/abs/2018PhRvD..98f2004A)
+* VERITAS: [data](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/data/leptons/leptons_VERITAS_Etot.txt), [reference](https://ui.adsabs.harvard.edu/abs/2018PhRvD..98f2004A)
 
 #### Anti-protons
 * AMS-02: [data](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/data/antiprotons/H-bar_AMS-02_Ek.txt), [reference](https://ui.adsabs.harvard.edu/abs/2016PhRvL.117i1103A)
@@ -59,6 +59,3 @@ Download: [png](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/plot
 * AMS-02: [data](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/data/positrons/e%2B_AMS-02_Ek.txt), [reference](https://ui.adsabs.harvard.edu/abs/2019PhRvL.122d1102A)
 * PAMELA: [data](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/data/positrons/e%2B_PAMELA_Ek.txt), [reference](https://ui.adsabs.harvard.edu/abs/2013PhRvL.111h1102A)
 * FERMI: [data](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/data/positrons/e%2B_FERMI_Ek.txt), [reference](https://ui.adsabs.harvard.edu/abs/2012PhRvL.108a1103A)
-
-
-
