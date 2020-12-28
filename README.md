@@ -22,10 +22,11 @@ Download: [png](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/plot
 
 #### All particles
 * AUGER: [data](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/data/allparticle/allparticle_AUGER_Etot.txt), [reference](https://ui.adsabs.harvard.edu/abs/2019ICRC...36..450V)
-* HAWC: [data](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/data/allparticle/allparticle_HAWC_Etot.txt), [reference](https://journals.aps.org/prd/abstract/10.1103/PhysRevD.96.122001)
-* ICETOP+ICECUBE: [data](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/data/allparticle/allparticle_ICECUBE-ICETOP_SIBYLL-2.1_Etot.txt), [reference](https://doi.org/10.1103/PhysRevD.100.082002)
+* HAWC: [data](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/data/allparticle/allparticle_HAWC_Etot.txt), [reference](https://ui.adsabs.harvard.edu/abs/2017PhRvD..96l2001A)
+* ICETOP+ICECUBE: [data](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/data/allparticle/allparticle_ICECUBE-ICETOP_SIBYLL-2.1_Etot.txt), [reference](https://ui.adsabs.harvard.edu/abs/2019PhRvD.100h2002A)
+* KASCADE-Grande: [data](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/data/allparticle/allparticle_KASCADEGrande_SIBYLL-2.3_Etot.txt), [reference](https://ui.adsabs.harvard.edu/abs/2015ICRC...34..359B)
+
 * KASCADE: [data](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/data/allparticle/allparticle_KASCADE_SIBYLL-2.1_Etot.txt)
-* KASCADE-Grande: [data](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/data/allparticle/allparticle_KASCADEGrande_SIBYLL-2.3_Etot.txt), 
 * NUCLEON: [data](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/data/allparticle/allparticle_NUCLEON_Etot.txt)
 * Telescope Array: [data](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/data/allparticle/allparticle_TA_Etot.txt)
 * TIBET: [data](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/data/allparticle/allparticle_TIBET_QGSJET%2BHD_Etot.txt), [reference](https://iopscience.iop.org/article/10.1086/529514)
