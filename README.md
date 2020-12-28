@@ -1,5 +1,5 @@
 [![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4309926.svg)](https://doi.org/10.5281/zenodo.4309926)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1468852.svg)](https://doi.org/10.5281/zenodo.1468852)
 
 # The Cosmic Ray Spectrum (2020)
 
