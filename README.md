@@ -51,9 +51,9 @@ Download: [png](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/plot
 * PAMELA: [data](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/data/antiprotons/Hbar_PAMELA_kenergy.txt), [reference](https://ui.adsabs.harvard.edu/abs/2013JETPL..96..621A)
 
 #### Positrons
-* AMS02: [data](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/data/positrons/positrons_AMS02_kenergy.txt), [reference](https://ui.adsabs.harvard.edu/abs/2019PhRvL.122d1102A)
-* PAMELA: [data](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/data/positrons/positrons_PAMELA_kenergy.txt), [reference](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/data/positrons/positrons_PAMELA_kenergy.txt)
-* FERMI: [data](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/data/positrons/positrons_FERMI_kenergy.txt), [reference](https://ui.adsabs.harvard.edu/abs/2012PhRvL.108a1103A)
+* AMS02: [data](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/data/positrons/e%2B_AMS-02_Ek.txt), [reference](https://ui.adsabs.harvard.edu/abs/2019PhRvL.122d1102A)
+* PAMELA: [data](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/data/positrons/e%2B_PAMELA_Ek.txt), [reference](https://ui.adsabs.harvard.edu/abs/2013PhRvL.111h1102A)
+* FERMI: [data](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/data/positrons/e%2B_FERMI_Ek.txt), [reference](https://ui.adsabs.harvard.edu/abs/2012PhRvL.108a1103A)
 
 
 
