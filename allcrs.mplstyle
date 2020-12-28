@@ -20,7 +20,7 @@ legend.frameon : False
 legend.numpoints : 1
 legend.loc : best
 lines.linewidth : 3
-lines.markersize : 5
+lines.markersize : 6
 text.usetex : True
 xtick.direction : in
 xtick.labelsize : 26

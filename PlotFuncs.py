@@ -6,13 +6,14 @@ import numpy as np
 import math
 
 def MySaveFig(fig, pltname, pngsave=False):
-    if pngsave:
-        filename = pltname + '.png'
-    else:
-        filename = pltname + '.pdf'
-    print ("Saving plot as " + filename)
-    fig.savefig(filename, bbox_inches='tight', dpi=300)
-    
+#    if pngsave:
+#        filename = pltname + '.png'
+#    else:
+#        filename = pltname + '.pdf'
+    print ("Saving plot as " + pltname + ".pdf")
+    fig.savefig(pltname + '.png', bbox_inches='tight', dpi=300)
+    fig.savefig(pltname + '.pdf', bbox_inches='tight', dpi=300)
+
 class TheCrSpectrum():
     cAMS02 = 'forestgreen'
     cAUGER = 'steelblue'
@@ -70,7 +71,7 @@ class TheCrSpectrum():
         ax2.tick_params(axis='x', colors='tab:blue')
     
     def plot_line(self, ax, filename, color):
-        E, dJdE = np.loadtxt(filename,skiprows=7,usecols=(0,1),unpack=True)
+        E, dJdE = np.loadtxt(filename,skiprows=0,usecols=(0,1),unpack=True)
         ax.plot(E, np.power(E, 2.0) * dJdE, color=color)
         
     def plot_data(self, ax, filename, fmt, color, zorder=1):
@@ -128,7 +129,8 @@ class TheCrSpectrum():
         ax.text(0.9e3, 3e-5, r'$\gamma$ IRGB', fontsize=20)
         #ax.text(0.6e3, 4e2, r'$\sim E^{-2.7}$')
         #ax.text(5.5e8, 1e-2, r'$\sim E^{-3.1}$')
-    
+        ax.text(1.1e12, 2e-1, 'github.com/carmeloevoli/The\_CR\_Spectrum', rotation=-90, fontsize=11)
+        
     def ypos(self, i):
         f_text = 1.90
         return 0.020 * pow(f_text, i)
@@ -178,31 +180,30 @@ class TheCrSpectrum():
 
     def protons(self, ax):
         pdir = 'data/protons/'
-        self.plot_data(ax, pdir+'H_KASCADE_2005_SIBYLL-2.1_Etot.txt', 'P', self.cKASCADE)
-        self.plot_data(ax, pdir+'H_BESS-TeV_Ek.txt', 'P', self.cBESS)
-        self.plot_data(ax, pdir+'H_PAMELA_Ek.txt', 'P', self.cPAMELA)
-        self.plot_data(ax, pdir+'H_AMS-02_Ek.txt', 'P', self.cAMS02)
-        self.plot_data(ax, pdir+'H_CREAM-III_Ek.txt', 'P', self.cCREAM)
-        self.plot_data(ax, pdir+'H_KASCADEGrande_SIBYLL-2.3_Etot.txt', 'P', self.cKASCADEGrande)
-        self.plot_data(ax, pdir+'H_ICECUBE-ICETOP_Etot.txt', 'P', self.cICETOP_ICECUBE)
-        self.plot_data(ax, pdir+'H_NUCLEON_Etot.txt', 'P', self.cNUCLEON)
-        self.plot_data(ax, pdir+'H_CALET_Ek.txt', 'P', self.cCALET)
-        self.plot_data(ax, pdir+'H_DAMPE_Ek.txt', 'P', self.cDAMPE)
+        self.plot_data(ax, pdir+'H_KASCADE_2005_SIBYLL-2.1_Etot.txt', 'v', self.cKASCADE, 10)
+        self.plot_data(ax, pdir+'H_BESS-TeV_Ek.txt', 'v', self.cBESS, 4)
+        self.plot_data(ax, pdir+'H_PAMELA_Ek.txt', 'v', self.cPAMELA, 5)
+        self.plot_data(ax, pdir+'H_AMS-02_Ek.txt', 'v', self.cAMS02, 6)
+        self.plot_data(ax, pdir+'H_CREAM-III_Ek.txt', 'v', self.cCREAM, 7)
+        self.plot_data(ax, pdir+'H_KASCADEGrande_SIBYLL-2.3_Etot.txt', 'v', self.cKASCADEGrande, 2)
+        self.plot_data(ax, pdir+'H_ICECUBE-ICETOP_Etot.txt', 'v', self.cICETOP_ICECUBE, 1)
+        self.plot_data(ax, pdir+'H_NUCLEON_Etot.txt', 'v', self.cNUCLEON, 3)
+        self.plot_data(ax, pdir+'H_CALET_Ek.txt', 'v', self.cCALET, 8)
+        self.plot_data(ax, pdir+'H_DAMPE_Ek.txt', 'v', self.cDAMPE, 9)
 
     def allparticle(self, ax):
         pdir = 'data/allparticle/'
-        self.plot_data(ax, pdir+'allparticle_AUGER_Etot.txt', 'o', self.cAUGER)
-        self.plot_data(ax, pdir+'allparticle_TA_Etot.txt', 'o', self.cTA)
-        self.plot_data(ax, pdir+'allparticle_TIBET_QGSJET+HD_Etot.txt', 'o', self.cTIBET)
-        self.plot_data(ax, pdir+'allparticle_HAWC_Etot.txt', 'o', self.cHAWC)
-        self.plot_data(ax, pdir+'allparticle_ICECUBE-ICETOP_SIBYLL-2.1_Etot.txt', 'o', self.cICETOP_ICECUBE)
-        self.plot_data(ax, pdir+'allparticle_KASCADEGrande_SIBYLL-2.3_Etot.txt', 'o', self.cKASCADEGrande)
-        self.plot_data(ax, pdir+'allparticle_KASCADE_SIBYLL-2.1_Etot.txt', 'o', self.cKASCADE)
-        self.plot_data(ax, pdir+'allparticle_NUCLEON_Etot.txt', 'o', self.cNUCLEON)
-        self.plot_data(ax, pdir+'allparticle_TUNKA-133_Etot.txt', 'o', self.cTUNKA)
-#        self.plot_data(ax, pdir+'allparticle_ICETOP_E_2019.txt', 'o', self.cICETOP)
-#        self.plot_line(ax, pdir+'allparticle_AMS02.txt', self.cAMS02)
-#        self.plot_line(ax, pdir+'allparticle_CREAM.txt', self.cCREAM)
+        self.plot_line(ax, pdir+'allparticle_AMS02.txt', self.cAMS02)
+        self.plot_line(ax, pdir+'allparticle_CREAM.txt', self.cCREAM)
+        self.plot_data(ax, pdir+'allparticle_AUGER_Etot.txt', 'o', self.cAUGER, 10)
+        self.plot_data(ax, pdir+'allparticle_TA_Etot.txt', 'o', self.cTA, 9)
+        self.plot_data(ax, pdir+'allparticle_KASCADE_SIBYLL-2.1_Etot.txt', 'o', self.cKASCADE, 8)
+        self.plot_data(ax, pdir+'allparticle_NUCLEON_Etot.txt', 'o', self.cNUCLEON, 8)
+        self.plot_data(ax, pdir+'allparticle_TIBET_QGSJET+HD_Etot.txt', 'o', self.cTIBET, 7)
+        self.plot_data(ax, pdir+'allparticle_HAWC_Etot.txt', 'o', self.cHAWC, 6)
+        self.plot_data(ax, pdir+'allparticle_ICECUBE-ICETOP_SIBYLL-2.1_Etot.txt', 'o', self.cICETOP_ICECUBE, 5)
+        self.plot_data(ax, pdir+'allparticle_TUNKA-133_Etot.txt', 'o', self.cTUNKA, 4)
+        self.plot_data(ax, pdir+'allparticle_KASCADEGrande_SIBYLL-2.3_Etot.txt', 'o', self.cKASCADEGrande, 3)
 
     def gammas(self, ax):
         pdir = 'data/gammas/'
