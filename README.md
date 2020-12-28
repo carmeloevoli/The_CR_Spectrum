@@ -46,9 +46,9 @@ Download: [png](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/plot
 * VERITAS: [data](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/data/leptons/leptons_VERITAS_kenergy.txt), [reference](https://ui.adsabs.harvard.edu/abs/2018PhRvD..98f2004A)
 
 #### Anti-protons
-* AMS02: [data](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/data/antiprotons/Hbar_AMS02_kenergy.txt), [reference](https://ui.adsabs.harvard.edu/abs/2016PhRvL.117i1103A)
-* BESS: [data](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/data/antiprotons/Hbar_BESS_kenergy.txt), [reference](https://ui.adsabs.harvard.edu/abs/2012PhRvL.108e1102A)
-* PAMELA: [data](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/data/antiprotons/Hbar_PAMELA_kenergy.txt), [reference](https://ui.adsabs.harvard.edu/abs/2013JETPL..96..621A)
+* AMS02: [data](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/data/antiprotons/H-bar_AMS-02_Ek.txt), [reference](https://ui.adsabs.harvard.edu/abs/2016PhRvL.117i1103A)
+* BESS: [data](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/data/antiprotons/H-bar_BESS_Ek.txt), [reference](https://ui.adsabs.harvard.edu/abs/2012PhRvL.108e1102A)
+* PAMELA: [data](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/data/antiprotons/H-bar_PAMELA_Ek.txt), [reference](https://ui.adsabs.harvard.edu/abs/2013JETPL..96..621A)
 
 #### Positrons
 * AMS02: [data](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/data/positrons/e%2B_AMS-02_Ek.txt), [reference](https://ui.adsabs.harvard.edu/abs/2019PhRvL.122d1102A)
