@@ -25,12 +25,11 @@ Download: [png](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/plot
 * HAWC: [data](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/data/allparticle/allparticle_HAWC_Etot.txt), [reference](https://ui.adsabs.harvard.edu/abs/2017PhRvD..96l2001A)
 * ICETOP+ICECUBE: [data](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/data/allparticle/allparticle_ICECUBE-ICETOP_SIBYLL-2.1_Etot.txt), [reference](https://ui.adsabs.harvard.edu/abs/2019PhRvD.100h2002A)
 * KASCADE-Grande: [data](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/data/allparticle/allparticle_KASCADEGrande_SIBYLL-2.3_Etot.txt), [reference](https://ui.adsabs.harvard.edu/abs/2015ICRC...34..359B)
-
 * KASCADE: [data](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/data/allparticle/allparticle_KASCADE_SIBYLL-2.1_Etot.txt)
-* NUCLEON: [data](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/data/allparticle/allparticle_NUCLEON_Etot.txt)
-* Telescope Array: [data](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/data/allparticle/allparticle_TA_Etot.txt)
-* TIBET: [data](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/data/allparticle/allparticle_TIBET_QGSJET%2BHD_Etot.txt), [reference](https://iopscience.iop.org/article/10.1086/529514)
-* TUNKA: [data](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/data/allparticle/allparticle_TUNKA-133_Etot.txt), [reference](https://www.sciencedirect.com/science/article/abs/pii/S0927650519302099)
+* NUCLEON: [data](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/data/allparticle/allparticle_NUCLEON_Etot.txt), [reference](https://ui.adsabs.harvard.edu/abs/2019AdSpR..64.2546G)
+* Telescope Array: [data](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/data/allparticle/allparticle_TA_Etot.txt), [reference](https://ui.adsabs.harvard.edu/abs/2017ICRC...35.1096M)
+* TIBET: [data](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/data/allparticle/allparticle_TIBET_QGSJET%2BHD_Etot.txt), [reference](https://ui.adsabs.harvard.edu/abs/2008ApJ...678.1165A)
+* TUNKA: [data](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/data/allparticle/allparticle_TUNKA-133_Etot.txt), [reference](https://ui.adsabs.harvard.edu/abs/2020APh...11702406B)
 
 #### Protons
 * AMS-02: [data](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/data/protons/H_AMS-02_Ek.txt), [reference](https://ui.adsabs.harvard.edu/abs/2015PhRvL.114q1103A)
