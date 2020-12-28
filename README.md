@@ -39,11 +39,11 @@ Download: [png](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/plot
 * DAMPE: [data](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/data/protons/H_DAMPE_kenergy.txt), [reference](https://ui.adsabs.harvard.edu/abs/2019SciA....5.3793A)
 
 #### Leptons
-* AMS02: [data](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/data/leptons/leptons_AMS02_kenergy.txt), [reference](https://ui.adsabs.harvard.edu/abs/2019PhRvL.122j1101A)
-* CALET: [data](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/data/leptons/leptons_CALET_kenergy.txt), [reference](https://ui.adsabs.harvard.edu/abs/2018PhRvL.120z1102A)
-* DAMPE: [data](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/data/leptons/leptons_DAMPE_kenergy.txt), [reference](https://ui.adsabs.harvard.edu/abs/2017Natur.552...63D)
-* FERMI: [data](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/data/leptons/leptons_FERMI_kenergy.txt), [reference](https://ui.adsabs.harvard.edu/abs/2017PhRvD..95h2007A)
-* VERITAS: [data](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/data/leptons/leptons_VERITAS_kenergy.txt), [reference](https://ui.adsabs.harvard.edu/abs/2018PhRvD..98f2004A)
+* AMS02: [data](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/data/leptons/leptons_AMS-02_Ek.txt), [reference](https://ui.adsabs.harvard.edu/abs/2019PhRvL.122j1101A)
+* CALET: [data](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/data/leptons/leptons_CALET_Etot.txt), [reference](https://ui.adsabs.harvard.edu/abs/2018PhRvL.120z1102A)
+* DAMPE: [data](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/data/leptons/leptons_DAMPE_Etot.txt), [reference](https://ui.adsabs.harvard.edu/abs/2017Natur.552...63D)
+* FERMI: [data](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/data/leptons/leptons_FERMI_Etot.txt), [reference](https://ui.adsabs.harvard.edu/abs/2017PhRvD..95h2007A)
+* VERITAS: [data]https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/data/leptons/leptons_VERITAS_Etot.txt), [reference](https://ui.adsabs.harvard.edu/abs/2018PhRvD..98f2004A)
 
 #### Anti-protons
 * AMS02: [data](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/data/antiprotons/H-bar_AMS-02_Ek.txt), [reference](https://ui.adsabs.harvard.edu/abs/2016PhRvL.117i1103A)
