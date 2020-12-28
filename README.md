@@ -29,7 +29,7 @@ Download: [png](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/plot
 * NUCLEON: [data](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/data/allparticle/allparticle_NUCLEON_Etot.txt)
 * Telescope Array: [data](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/data/allparticle/allparticle_TA_Etot.txt)
 * TIBET: [data](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/data/allparticle/allparticle_TIBET_QGSJET%2BHD_Etot.txt), [reference](https://iopscience.iop.org/article/10.1086/529514)
-* TUNKA: [data](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/data/allparticle/allparticle_TUNKA-133_Etot.txt), [reference]()
+* TUNKA: [data](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/data/allparticle/allparticle_TUNKA-133_Etot.txt), [reference](https://www.sciencedirect.com/science/article/abs/pii/S0927650519302099)
 
 #### Protons
 * AMS02: [data](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/data/protons/H_AMS02_E_2019.txt), [reference](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.114.171103)
