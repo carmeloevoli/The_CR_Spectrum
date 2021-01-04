@@ -123,10 +123,10 @@ class TheCrSpectrum():
         ax.text(7, 0.7e3, r'$p$', fontsize=22)
         ax.text(0.5e7, 3e-5, r'$\nu + \bar{\nu}$', fontsize=21)
         ax.text(0.5e2, 2e-2, r'$\gamma$', fontsize=21)
-        ax.text(0.9e3, 3e-5, r'$\gamma$ IRGB', fontsize=20)
+        ax.text(0.9e3, 3e-5, r'$\gamma$ IGRB', fontsize=20)
         #ax.text(0.6e3, 4e2, r'$\sim E^{-2.7}$')
         #ax.text(5.5e8, 1e-2, r'$\sim E^{-3.1}$')
-        ax.text(1.1e12, 2e-1, 'github.com/carmeloevoli/The\_CR\_Spectrum', rotation=-90, fontsize=11)
+        ax.text(1.1e12, 2e-1, 'github.com/carmeloevoli/The\_CR\_Spectrum', rotation=-90, fontsize=10, color='tab:gray')
         
     def ypos(self, i):
         f_text = 1.90
