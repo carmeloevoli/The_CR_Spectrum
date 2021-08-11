@@ -1,7 +1,7 @@
 [![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1468852.svg)](https://doi.org/10.5281/zenodo.1468852)
 
-# The Cosmic Ray Spectrum (2020)
+# The Cosmic Ray Spectrum (2021)
 
 Please email me [carmelo.evoli@gssi.it] or make a pull request if you would like any dataset being added.
 
@@ -14,9 +14,9 @@ For the collection of the CR data I'm pleased to acknowledge the use of the foll
 ### <a name="crspectrum"></a>
 ### Spectrum plot
 
-<img src="plots/The_CR_Spectrum_2020.png" width="800">
+<img src="plots/The_CR_Spectrum_2021.png" width="800">
 
-Download: [png](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/plots/The_CR_Spectrum_2020.png), [pdf](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/plots/The_CR_Spectrum_2020.pdf)
+Download: [png](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/plots/The_CR_Spectrum_2021.png), [pdf](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/plots/The_CR_Spectrum_2021.pdf)
 
 ### Data
 
@@ -59,3 +59,6 @@ Download: [png](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/plot
 * AMS-02: [data](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/data/positrons/e%2B_AMS-02_Ek.txt), [reference](https://ui.adsabs.harvard.edu/abs/2019PhRvL.122d1102A)
 * PAMELA: [data](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/data/positrons/e%2B_PAMELA_Ek.txt), [reference](https://ui.adsabs.harvard.edu/abs/2013PhRvL.111h1102A)
 * FERMI: [data](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/data/positrons/e%2B_FERMI_Ek.txt), [reference](https://ui.adsabs.harvard.edu/abs/2012PhRvL.108a1103A)
+
+#### Neutrinos (total flux)
+* ICECUBE: [data](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/data/neutrinos/neutrinos_ICECUBE.txt), [reference](https://ui.adsabs.harvard.edu/abs/2021PhRvD.104b2002A/abstract)
