@@ -12,4 +12,4 @@ plot.neutrinos(ax)
 plot.experiment_legend(ax)
 plot.annotate(ax)
 
-MySaveFig(fig, 'The_CR_Spectrum_2020', True)
+MySaveFig(fig, 'The_CR_Spectrum_2021', True)
