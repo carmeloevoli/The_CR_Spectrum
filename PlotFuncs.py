@@ -49,15 +49,15 @@ class TheCrSpectrum():
         ax.minorticks_off()
         ax.set_xscale('log')
         ax.set_xlim([1, 1e12])
-        ax.set_xticks(np.logspace(0, 12, 13))
-        labels = ['GeV', '', '', 'TeV', '', '', 'PeV', '', '', 'EeV', '', '']
-        ax.set_xticklabels(labels)
-        ax.set_xlabel('Energy')
-        #Set y-axis
+#        ax.set_xticks(np.logspace(0, 12, 13))
+#        labels = ['GeV', '', '', 'TeV', '', '', 'PeV', '', '', 'EeV', '', '']
+#        ax.set_xticklabels(labels)
+        ax.set_xlabel('Energy [GeV]')
+#        #Set y-axis
         ax.set_yscale('log')
         ax.set_ylim([1e-7, 1e4])
-        ax.set_ylabel(r'Energy flux [GeV/m$^2$ s sr]')
-        #Set twin y-axis
+        ax.set_ylabel(r'E$^{2}$ Intensity [GeV m$^{-2}$ s$^{-1}$ sr$^{-1}$]')
+#        #Set twin y-axis
         ax2 = ax.twiny()
         ax2.minorticks_off()
         ax2.set_xscale('log')
@@ -129,8 +129,8 @@ class TheCrSpectrum():
         ax.text(1.1e12, 2e-1, 'github.com/carmeloevoli/The\_CR\_Spectrum', rotation=-90, fontsize=10, color='tab:gray')
         
     def ypos(self, i):
-        f_text = 1.90
-        return 0.020 * pow(f_text, i)
+        f_text = 1.95
+        return 0.015 * pow(f_text, i)
         
     def experiment_legend(self, ax):
         font_size = 13
@@ -209,24 +209,16 @@ class TheCrSpectrum():
                     markeredgecolor=self.cFERMI, color=self.cFERMI, elinewidth=2, capthick=2, mfc='white')
         E, y = np.loadtxt(pdir+'gamma_diffuse_FERMI.txt',skiprows=3,usecols=(0,1),unpack=True)
         ax.plot(E, y, 'o', markeredgecolor=self.cFERMI, markeredgewidth=1.4, color=self.cFERMI, mfc='white')
-
+        
     def neutrinos(self, ax):
         color = self.cICECUBE
         
-        E = np.logspace(np.log10(2e4), np.log10(2e6), 100)
-        flux = 1.57e-18 * pow(E / 1e5, -2.48) * 1e4 # m^-2 s^-1 sr^-1
-
-        flux_min = (1.57e-18 - 0.22e-18) * pow(E / 1e5, -2.48 - 0.08) * 1e4 # m^-2 s^-1 sr^-1
-        flux_max = (1.57e-18 + 0.23e-18) * pow(E / 1e5, -2.48 + 0.08) * 1e4 # m^-2 s^-1 sr^-1
-
-        x = [6.1e4, 9.6e4, 3e6]
-        y_min = [2.3e-4, 1.7e-4, 2.5e-6]
-        y_max = [6e-4, 3.4e-4, 3.8e-5]
-        ax.fill_between(np.array(x), 3. * np.array(y_min), 3. * np.array(y_max), alpha=0.4, lw=2,
-                        facecolor=color, edgecolor=color)
-
-        x = [1.2e5, 4.65e6]
-        y_min = [7.4e-5, 2.6e-5]
-        y_max = [1.2e-4, 8.8e-5]
-        ax.fill_between(np.array(x), 3. * np.array(y_min), 3. * np.array(y_max), alpha=0.4, lw=2,
-                        facecolor=color, edgecolor=color)
+        filename = 'data/neutrinos/neutrinos_ICECUBE.txt'
+        E_min, E_max, flux, flux_min, flux_max = np.loadtxt(filename, usecols=(0,1,2,3,4), skiprows=2, unpack=True)
+        E = np.sqrt(E_min * E_max)
+        y = E * E * flux * 1e4
+        y_min = E * E * flux_min * 1e4
+        y_max = E * E * flux_max * 1e4
+        x_min = E - E_min
+        x_max = E_max - E
+        ax.errorbar(E, y, xerr=[x_min, x_max], yerr=[y_min, y_max], fmt='o', markeredgecolor=color, color=color, elinewidth=2, capthick=2, mfc='white')
