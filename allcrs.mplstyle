@@ -7,6 +7,7 @@ axes.spines.bottom : True
 axes.spines.top : True
 axes.spines.right : True
 axes.titlesize : 25
+axes.formatter.min_exponent : 1
 errorbar.capsize : 3
 figure.autolayout : True
 figure.figsize : 7., 6.4
