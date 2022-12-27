@@ -20,7 +20,6 @@ class TheCrSpectrum():
     cDAMPE = 'm'
     cFERMI = 'b'
     cHAWC = 'slategray'
-    cHESS = 'darkorchid'
     cICECUBE = 'salmon'
     cICETOP_ICECUBE = 'c'
     cKASCADEGrande = 'goldenrod'
@@ -142,17 +141,16 @@ class TheCrSpectrum():
         ax.text(1.1e9, self.ypos(13), 'DAMPE', color=self.cDAMPE, fontsize=font_size)
         ax.text(1.1e9, self.ypos(12), 'FERMI', color=self.cFERMI, fontsize=font_size)
         ax.text(1.1e9, self.ypos(11), 'HAWC', color=self.cHAWC, fontsize=font_size)
-        ax.text(1.1e9, self.ypos(10), 'HESS', color=self.cHESS, fontsize=font_size)
-        ax.text(1.1e9, self.ypos(9), 'ICECUBE', color=self.cICECUBE, fontsize=font_size)
-        ax.text(1.1e9, self.ypos(8), 'ICETOP+ICECUBE', color=self.cICETOP_ICECUBE, fontsize=font_size)
-        ax.text(1.1e9, self.ypos(7), 'KASCADE', color=self.cKASCADE, fontsize=font_size)
-        ax.text(1.1e9, self.ypos(6), 'KASCADE-Grande', color=self.cKASCADEGrande, fontsize=font_size)
-        ax.text(1.1e9, self.ypos(5), 'NUCLEON', color=self.cNUCLEON, fontsize=font_size)
-        ax.text(1.1e9, self.ypos(4), 'PAMELA', color=self.cPAMELA, fontsize=font_size)
-        ax.text(1.1e9, self.ypos(3), 'Telescope Array', color=self.cTA, fontsize=font_size)
-        ax.text(1.1e9, self.ypos(2), 'Tibet-III', color=self.cTIBET, fontsize=font_size)
-        ax.text(1.1e9, self.ypos(1), 'TUNKA', color=self.cTUNKA, fontsize=font_size)
-        ax.text(1.1e9, self.ypos(0), 'VERITAS', color=self.cVERITAS, fontsize=font_size)
+        ax.text(1.1e9, self.ypos(10), 'ICECUBE', color=self.cICECUBE, fontsize=font_size)
+        ax.text(1.1e9, self.ypos(9), 'ICETOP+ICECUBE', color=self.cICETOP_ICECUBE, fontsize=font_size)
+        ax.text(1.1e9, self.ypos(8), 'KASCADE', color=self.cKASCADE, fontsize=font_size)
+        ax.text(1.1e9, self.ypos(7), 'KASCADE-Grande', color=self.cKASCADEGrande, fontsize=font_size)
+        ax.text(1.1e9, self.ypos(6), 'NUCLEON', color=self.cNUCLEON, fontsize=font_size)
+        ax.text(1.1e9, self.ypos(5), 'PAMELA', color=self.cPAMELA, fontsize=font_size)
+        ax.text(1.1e9, self.ypos(4), 'Telescope Array', color=self.cTA, fontsize=font_size)
+        ax.text(1.1e9, self.ypos(3), 'Tibet-III', color=self.cTIBET, fontsize=font_size)
+        ax.text(1.1e9, self.ypos(2), 'TUNKA', color=self.cTUNKA, fontsize=font_size)
+        ax.text(1.1e9, self.ypos(1), 'VERITAS', color=self.cVERITAS, fontsize=font_size)
     
     def positrons(self, ax):
         pdir = 'data/positrons/'
