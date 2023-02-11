@@ -1,7 +1,7 @@
 [![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1468852.svg)](https://doi.org/10.5281/zenodo.1468852)
 
-# The Cosmic Ray Spectrum (2021)
+## The Cosmic Ray Spectrum (2021)
 
 Please email me [carmelo.evoli@gssi.it] or make a pull request if you would like any dataset being added.
 
@@ -12,7 +12,7 @@ For the collection of the CR data I'm pleased to acknowledge the use of the foll
 * [KASCADE Cosmic Ray Data Centre](https://kcdc.ikp.kit.edu) ([reference](https://ui.adsabs.harvard.edu/abs/2018EPJC...78..741H))
 
 ### <a name="crspectrum"></a>
-### Spectrum plot
+### The Spectrum plot
 
 <img src="plots/The_CR_Spectrum_2021.png" width="800">
 
