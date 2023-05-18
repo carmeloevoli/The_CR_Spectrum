@@ -214,11 +214,11 @@ class TheCrSpectrum():
         
         ind = [i for i in range(len(dyLo)) if dyLo[i] < y[i]]
         ax.errorbar(E[ind], y[ind], yerr=[dyLo[ind], dyUp[ind]], # xerr=[dELo[ind], dEUp[ind]],
-            fmt='o', markeredgecolor=color, color=color, elinewidth=1.5, capthick=1.5, zorder=zorder)
+            fmt=fmt, markeredgecolor=color, color=color, elinewidth=1.5, capthick=1.5, zorder=zorder)
 
         ind = [i for i in range(len(dyLo)) if dyLo[i] > y[i]]
         ax.errorbar(E[ind], y[ind], yerr=0.25 * y[ind], uplims=True, # xerr=[dELo[ind], dEUp[ind]],
-            fmt='o', markeredgecolor=color, color=color, elinewidth=1.5, capthick=1.5, zorder=zorder)
+            fmt=fmt, markeredgecolor=color, color=color, elinewidth=1.5, capthick=1.5, zorder=zorder)
 
     def plot_data_inner(self, ax, filename, color):
         E, E2I = np.loadtxt(filename,usecols=(0,1),unpack=True)
