@@ -33,7 +33,7 @@ class TheCrSpectrum():
     cVERITAS = 'seagreen'
     
     def __init__(self):
-         print ("Calling TheCrSpectrum constructor")
+        print ("Calling TheCrSpectrum constructor")
     
     def FigSetup(self, Shape='Rectangular'):
         if Shape=='Wide':
@@ -42,22 +42,25 @@ class TheCrSpectrum():
             fig = plt.figure(figsize=(10.0,10.5))
         ax = fig.add_subplot(111)
         self.SetAxes(ax)
-        return fig,ax
+        return fig, ax
 
     def SetAxes(self, ax):
         #Set x-axis
         ax.minorticks_off()
         ax.set_xscale('log')
         ax.set_xlim([1, 1e12])
+        ax.set_xlabel('Energy [GeV]')
+#        ax.grid(True)
 #        ax.set_xticks(np.logspace(0, 12, 13))
 #        labels = ['GeV', '', '', 'TeV', '', '', 'PeV', '', '', 'EeV', '', '']
 #        ax.set_xticklabels(labels)
-        ax.set_xlabel('Energy [GeV]')
-#        #Set y-axis
+
+        #Set y-axis
         ax.set_yscale('log')
         ax.set_ylim([1e-7, 1e4])
         ax.set_ylabel(r'E$^{2}$ Intensity [GeV m$^{-2}$ s$^{-1}$ sr$^{-1}$]')
-#        #Set twin y-axis
+
+        #Set twin y-axis
         ax2 = ax.twiny()
         ax2.minorticks_off()
         ax2.set_xscale('log')
@@ -67,22 +70,6 @@ class TheCrSpectrum():
         ax2.set_xticks([1e-10, 1e-8, 1e-6, 1e-4, 1e-2, 1e0, 1e2])
         ax2.tick_params(axis='x', colors='tab:blue')
     
-    def plot_line(self, ax, filename, color):
-        E, dJdE = np.loadtxt(filename,skiprows=0,usecols=(0,1),unpack=True)
-        ax.plot(E, np.power(E, 2.0) * dJdE, color=color)
-        
-    def plot_data(self, ax, filename, fmt, color, zorder=1):
-        E, dJdE, err_low, err_high = np.loadtxt(filename,skiprows=3,usecols=(0,1,2,3),unpack=True)
-        size = len(E)
-        for i in range(size):
-            y = np.power(E[i], 2.0) * dJdE[i]
-            dJdE_err = .5 * (err_low[i] + err_high[i])
-            yerr = np.power(E[i], 2.0) * dJdE_err
-            if (yerr < y):
-                ax.errorbar(E[i], y, yerr=yerr, fmt=fmt, markeredgecolor=color, color=color, elinewidth=2, capthick=2, zorder=zorder)
-            #else:
-            #    ax.errorbar(E[i], y, yerr=0.4*y, uplims=True, fmt=fmt, markeredgecolor=color, color=color, elinewidth=2, capsize=0)
-
     def annotate(self, ax):
         E_LHC = 2. * np.power(13e3, 2) / 0.938
         ax.annotate('LHC', xy=(E_LHC, 1e-7), xytext=(E_LHC, 1e-6), horizontalalignment="center",
@@ -121,8 +108,8 @@ class TheCrSpectrum():
         ax.text(0.85e1, 2e0, r'$e^+$', fontsize=22)
         ax.text(2.2, 1.4e-2, r'$\bar{p}$', fontsize=22)
         ax.text(7, 0.7e3, r'$p$', fontsize=22)
-        ax.text(0.5e7, 3e-5, r'$\nu + \bar{\nu}$', fontsize=21)
-        ax.text(0.5e2, 2e-2, r'$\gamma$', fontsize=21)
+        ax.text(0.5e6, 1e-5, r'$\nu + \bar{\nu}$', fontsize=21)
+        ax.text(0.5e2, 1.8e-2, r'$\gamma$', fontsize=21)
         ax.text(0.9e3, 3e-5, r'$\gamma$ IGRB', fontsize=20)
         #ax.text(0.6e3, 4e2, r'$\sim E^{-2.7}$')
         #ax.text(5.5e8, 1e-2, r'$\sim E^{-3.1}$')
@@ -156,69 +143,94 @@ class TheCrSpectrum():
     
     def positrons(self, ax):
         pdir = 'data/positrons/'
-        self.plot_data(ax, pdir+'e+_FERMI_Ek.txt', 'o', self.cFERMI, 1)
-        self.plot_data(ax, pdir+'e+_AMS-02_Ek.txt', 'o', self.cAMS02, 2)
-        self.plot_data(ax, pdir+'e+_PAMELA_Ek.txt', 'o', self.cPAMELA, 3)
+        self.plot_data(ax, pdir+'FERMI_e+_kineticEnergy.txt', 'o', self.cFERMI, 1)
+        self.plot_data(ax, pdir+'AMS-02_e+_kineticEnergy.txt', 'o', self.cAMS02, 2)
+        self.plot_data(ax, pdir+'PAMELA_e+_kineticEnergy.txt', 'o', self.cPAMELA, 3)
 
     def antiprotons(self, ax):
         pdir = 'data/antiprotons/'
-        self.plot_data(ax, pdir+'H-bar_BESS_Ek.txt', 'o', self.cBESS, 3)
+        self.plot_data(ax, pdir+'BESS-PolarII_pbar_kineticEnergy.txt', 'o', self.cBESS, 3)
         self.plot_data(ax, pdir+'H-bar_AMS-02_Ek.txt', 'o', self.cAMS02, 1)
-        self.plot_data(ax, pdir+'H-bar_PAMELA_Ek.txt', 'o', self.cPAMELA, 2)
+        self.plot_data(ax, pdir+'PAMELA_pbar_kineticEnergy.txt', 'o', self.cPAMELA, 2)
 
     def leptons(self, ax):
         pdir = 'data/leptons/'
-        self.plot_data(ax, pdir+'leptons_AMS-02_Ek.txt', 'o', self.cAMS02, 1)
-        self.plot_data(ax, pdir+'leptons_FERMI_Etot.txt', 'o', self.cFERMI, 4)
-        self.plot_data(ax, pdir+'leptons_CALET_Etot.txt', 'o', self.cCALET, 3)
-        self.plot_data(ax, pdir+'leptons_DAMPE_Etot.txt', 'o', self.cDAMPE, 5)
-        self.plot_data(ax, pdir+'leptons_VERITAS_Etot.txt', 'o', self.cVERITAS, 2)
-        #ADD HESS DATA?
+        self.plot_data(ax, pdir+'AMS-02_e+e-_kineticEnergy.txt', 'o', self.cAMS02, 1)
+        self.plot_data(ax, pdir+'FERMI_e+e-_kineticEnergy.txt', 'o', self.cFERMI, 4)
+        self.plot_data(ax, pdir+'CALET_e+e-_kineticEnergy.txt', 'o', self.cCALET, 3)
+        self.plot_data(ax, pdir+'DAMPE_e+e-_kineticEnergy.txt', 'o', self.cDAMPE, 5)
+        self.plot_data(ax, pdir+'VERITAS_e+e-_totalEnergy.txt', 'o', self.cVERITAS, 2)
+        self.plot_data(ax, pdir+'HESS_e+e-_totalEnergy.txt', 'o', self.cHESS, 6)
 
     def protons(self, ax):
         pdir = 'data/protons/'
-        self.plot_data(ax, pdir+'H_KASCADE_2005_SIBYLL-2.1_Etot.txt', 'v', self.cKASCADE, 10)
+        self.plot_data(ax, pdir+'KASCADE_2005_SIBYLL-2.1_H_totalEnergy.txt', 'v', self.cKASCADE, 10)
         self.plot_data(ax, pdir+'H_BESS-TeV_Ek.txt', 'v', self.cBESS, 4)
         self.plot_data(ax, pdir+'H_PAMELA_Ek.txt', 'v', self.cPAMELA, 5)
         self.plot_data(ax, pdir+'H_AMS-02_Ek.txt', 'v', self.cAMS02, 6)
-        self.plot_data(ax, pdir+'H_CREAM-III_Ek.txt', 'v', self.cCREAM, 7)
-        self.plot_data(ax, pdir+'H_KASCADEGrande_SIBYLL-2.3_Etot.txt', 'v', self.cKASCADEGrande, 2)
-        self.plot_data(ax, pdir+'H_ICECUBE-ICETOP_Etot.txt', 'v', self.cICETOP_ICECUBE, 1)
-        self.plot_data(ax, pdir+'H_NUCLEON_Etot.txt', 'v', self.cNUCLEON, 3)
-        self.plot_data(ax, pdir+'H_CALET_Ek.txt', 'v', self.cCALET, 8)
-        self.plot_data(ax, pdir+'H_DAMPE_Ek.txt', 'v', self.cDAMPE, 9)
+        self.plot_data(ax, pdir+'CREAM_III_H_kineticEnergy.txt', 'v', self.cCREAM, 7)
+        self.plot_data(ax, pdir+'KASCADE-Grande_SIBYLL-2.3_H_totalEnergy.txt', 'v', self.cKASCADEGrande, 2)
+        self.plot_data(ax, pdir+'IceCube_SIBYLL-2.1_H_totalEnergy.txt', 'v', self.cICETOP_ICECUBE, 1)
+        self.plot_data(ax, pdir+'NUCLEON_H_totalEnergy.txt', 'v', self.cNUCLEON, 3)
+        self.plot_data(ax, pdir+'CALET_H_kineticEnergy.txt', 'v', self.cCALET, 8)
+        self.plot_data(ax, pdir+'DAMPE_H_kineticEnergy.txt', 'v', self.cDAMPE, 9)
 
     def allparticle(self, ax):
         pdir = 'data/allparticle/'
         self.plot_line(ax, pdir+'allparticle_AMS02.txt', self.cAMS02)
         self.plot_line(ax, pdir+'allparticle_CREAM.txt', self.cCREAM)
-        self.plot_data(ax, pdir+'allparticle_AUGER_Etot.txt', 'o', self.cAUGER, 10)
-        self.plot_data(ax, pdir+'allparticle_TA_Etot.txt', 'o', self.cTA, 9)
-        self.plot_data(ax, pdir+'allparticle_KASCADE_SIBYLL-2.1_Etot.txt', 'o', self.cKASCADE, 8)
-        self.plot_data(ax, pdir+'allparticle_NUCLEON_Etot.txt', 'o', self.cNUCLEON, 8)
-        self.plot_data(ax, pdir+'allparticle_TIBET_QGSJET+HD_Etot.txt', 'o', self.cTIBET, 7)
-        self.plot_data(ax, pdir+'allparticle_HAWC_Etot.txt', 'o', self.cHAWC, 6)
-        self.plot_data(ax, pdir+'allparticle_ICECUBE-ICETOP_SIBYLL-2.1_Etot.txt', 'o', self.cICETOP_ICECUBE, 5)
-        self.plot_data(ax, pdir+'allparticle_TUNKA-133_Etot.txt', 'o', self.cTUNKA, 4)
-        self.plot_data(ax, pdir+'allparticle_KASCADEGrande_SIBYLL-2.3_Etot.txt', 'o', self.cKASCADEGrande, 3)
+        self.plot_data(ax, pdir+'Auger2019_allParticle_totalEnergy.txt', 'o', self.cAUGER, 10)
+        self.plot_data(ax, pdir+'TA_allParticle_totalEnergy.txt', 'o', self.cTA, 9)
+        self.plot_data(ax, pdir+'KASCADE_2005_SIBYLL-2.1_allParticle_totalEnergy.txt', 'o', self.cKASCADE, 8)
+        self.plot_data(ax, pdir+'NUCLEON_allParticle_totalEnergy.txt', 'o', self.cNUCLEON, 8)
+        self.plot_data(ax, pdir+'Tibet_QGSJET+HD_allParticle_totalEnergy.txt', 'o', self.cTIBET, 7)
+        self.plot_data(ax, pdir+'HAWC_allParticle_totalEnergy.txt', 'o', self.cHAWC, 6)
+        self.plot_data(ax, pdir+'IceCube_SIBYLL-2.1_allParticle_totalEnergy.txt', 'o', self.cICETOP_ICECUBE, 5)
+        self.plot_data(ax, pdir+'TUNKA-133_allParticle_totalEnergy.txt', 'o', self.cTUNKA, 4)
+        self.plot_data(ax, pdir+'KASCADE-Grande_SIBYLL-2.1_allParticle_totalEnergy.txt', 'o', self.cKASCADEGrande, 3)
 
     def gammas(self, ax):
-        pdir = 'data/gammas/'
-        E, y, y_err = np.loadtxt(pdir+'gamma_igrb_FERMI.txt',skiprows=3,usecols=(0,1,2),unpack=True)
-        ax.errorbar(E, y, yerr=y_err, fmt='o',
-                    markeredgecolor=self.cFERMI, color=self.cFERMI, elinewidth=2, capthick=2, mfc='white')
-        E, y = np.loadtxt(pdir+'gamma_diffuse_FERMI.txt',skiprows=3,usecols=(0,1),unpack=True)
-        ax.plot(E, y, 'o', markeredgecolor=self.cFERMI, markeredgewidth=1.4, color=self.cFERMI, mfc='white')
+        filename = 'data/gammas/FERMI_gammas_igrb.txt'
+        self.plot_data_diffuse(ax, filename, self.cFERMI)
+        filename = 'data/gammas/FERMI_gammas_inner.txt'
+        self.plot_data_inner(ax, filename, self.cFERMI)
         
     def neutrinos(self, ax):
-        color = self.cICECUBE
+        filename = 'data/neutrinos/IceCube_neutrinos.txt'
+        self.plot_data_diffuse(ax, filename, self.cICECUBE)
+
+    def plot_line(self, ax, filename, color):
+        E, dJdE = np.loadtxt(filename,skiprows=0,usecols=(0,1),unpack=True)
+        ax.plot(E, np.power(E, 2.0) * dJdE, color=color)
         
-        filename = 'data/neutrinos/neutrinos_ICECUBE.txt'
-        E_min, E_max, flux, flux_min, flux_max = np.loadtxt(filename, usecols=(0,1,2,3,4), skiprows=2, unpack=True)
-        E = np.sqrt(E_min * E_max)
-        y = E * E * flux * 1e4
-        y_min = E * E * flux_min * 1e4
-        y_max = E * E * flux_max * 1e4
-        x_min = E - E_min
-        x_max = E_max - E
-        ax.errorbar(E, y, xerr=[x_min, x_max], yerr=[y_min, y_max], fmt='o', markeredgecolor=color, color=color, elinewidth=2, capthick=2, mfc='white')
+    def plot_data(self, ax, filename, fmt, color, zorder=1):
+        E, dJdE, errStatLo, errStatUp, errSysLo, errSysUp = np.loadtxt(filename,skiprows=8,usecols=(0,1,2,3,4,5),unpack=True)
+        E2 = E * E
+        y = E2 * dJdE
+        dyLo = E2 * np.sqrt(errStatLo * errStatLo + errSysLo * errSysLo)
+        dyUp = E2 * np.sqrt(errStatUp * errStatUp + errSysUp * errSysUp)
+        
+        ind = [i for i in range(len(dyLo)) if dyLo[i] < y[i]]
+        ax.errorbar(E[ind], y[ind], yerr=[dyLo[ind], dyUp[ind]], # xerr=[dELo[ind], dEUp[ind]],
+            fmt='o', markeredgecolor=color, color=color, elinewidth=1.5, capthick=1.5, zorder=zorder)
+
+        ind = [i for i in range(len(dyLo)) if dyLo[i] > y[i]]
+        ax.errorbar(E[ind], y[ind], yerr=0.25 * y[ind], uplims=True, # xerr=[dELo[ind], dEUp[ind]],
+            fmt='o', markeredgecolor=color, color=color, elinewidth=1.5, capthick=1.5, zorder=zorder)
+
+    def plot_data_inner(self, ax, filename, color):
+        E, E2I = np.loadtxt(filename,usecols=(0,1),unpack=True)
+        ax.plot(E, E2I, 'o', markeredgecolor=color, markeredgewidth=1.5, color=color, mfc='white')
+
+    def plot_data_diffuse(self, ax, filename, color):
+        x, dxLo, dxUp, y, dyLo, dyUp = np.loadtxt(filename,skiprows=1,usecols=(0,1,2,3,4,5),unpack=True)
+
+        ind = [i for i in range(len(x)) if dyLo[i] < y[i]]
+        ax.errorbar(x[ind], y[ind], yerr=[dyLo[ind], dyUp[ind]], xerr=[dxLo[ind], dxUp[ind]],
+            fmt='o', markeredgecolor=color, color=color, elinewidth=1.5, capthick=1.5, zorder=3, mfc='white')
+
+        ind = [i for i in range(len(x)) if dyLo[i] > y[i]]
+        ax.errorbar(x[ind], y[ind], xerr=[dxLo[ind], dxUp[ind]], yerr=0.25 * y[ind], uplims=True,
+            fmt='o', markeredgecolor=color, color=color, elinewidth=1.5, capthick=1.5, zorder=3, mfc='white')
+
+

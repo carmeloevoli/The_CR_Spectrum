@@ -44,3 +44,5 @@
 
 #### Neutrinos (total flux)
 * ICECUBE: [data](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/data/neutrinos/neutrinos_ICECUBE.txt), [reference](https://ui.adsabs.harvard.edu/abs/2021PhRvD.104b2002A/abstract)
+
+#### Gammas
