@@ -5,7 +5,7 @@
 
 Please email me [carmelo.evoli@gssi.it] or make a pull request if you would like any dataset being added.
 
-For the collection of the CR data I'm pleased to acknowledge the use of the [CRDB database](http://lpsc.in2p3.fr/crdb) ([reference](https://ui.adsabs.harvard.edu/abs/2014A&A...569A..32M))
+For the collection of the CR data I'm pleased to acknowledge the use of the [CRDB database v4.1](http://lpsc.in2p3.fr/crdb) ([reference]([https://ui.adsabs.harvard.edu/abs/2014A&A...569A..32M](https://ui.adsabs.harvard.edu/abs/2023EPJC...83..971M/abstract)))
 
 ### <a name="crspectrum"></a>
 ### The Spectrum plot
