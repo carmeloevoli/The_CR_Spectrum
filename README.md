@@ -1,7 +1,7 @@
 [![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1468852.svg)](https://doi.org/10.5281/zenodo.1468852)
 
-## The Cosmic Ray Spectrum (2023)
+## The Cosmic Ray Spectrum (v24.10)
 
 Please email me [carmelo.evoli@gssi.it] or make a pull request if you would like any dataset being added.
 
@@ -14,9 +14,9 @@ For the collection of the CR data I'm pleased to acknowledge the use of the foll
 ### <a name="crspectrum"></a>
 ### The Spectrum plot
 
-<img src="plots/The_CR_Spectrum_2023.png" width="800">
+<img src="figures/The_CR_Spectrum_2024.png" width="800">
 
-Download: [png](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/plots/The_CR_Spectrum_2023.png), [pdf](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/plots/The_CR_Spectrum_2023.pdf)
+Download: [png](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/figures/The_CR_Spectrum_2024.png), [pdf](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/figures/The_CR_Spectrum_2024.pdf)
 
 ### How to cite it
 
