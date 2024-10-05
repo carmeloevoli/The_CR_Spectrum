@@ -14,8 +14,8 @@ plot.plot_experiment_data(ax, 'protons')
 plot.plot_experiment_data(ax, 'allParticles')
 
 # Optionally plot gammas and neutrinos if needed by uncommenting the following lines:
-# plot.gammas(ax)
-# plot.neutrinos(ax)
+plot.gammas(ax)
+plot.neutrinos(ax)
 
 # Add experiment legends and annotations
 plot.experiment_legend(ax)

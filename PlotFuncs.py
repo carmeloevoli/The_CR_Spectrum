@@ -69,7 +69,7 @@ class TheCrSpectrum:
         ax2 = ax.twiny()
         ax2.minorticks_off()
         ax2.set_xscale('log')
-        ax2.set_xlabel('Energy [J]', color='tab:blue', labelpad=20)
+        ax2.set_xlabel('Energy [J]', color='tab:blue', labelpad=18)
         eV2Joule = 1.60218e-19
         ax2.set_xlim([1e9 * eV2Joule, 1e21 * eV2Joule])
         ax2.set_xticks([1e-10, 1e-8, 1e-6, 1e-4, 1e-2, 1e0, 1e2])
@@ -82,7 +82,7 @@ class TheCrSpectrum:
         E_LHC = 2. * np.power(s_LHC, 2) / proton_mass
         annotations = [
             ('LHC', E_LHC, 1e-7, E_LHC, 1e-6),
-            ('Knee', 2.8e6, 1., 1e5, 9e-2),
+            ('Knee', 2.8e6, 1., 2.5e5, 1.3e-1),
             ('Ankle', 0.7e10, 4e-4, 1.25e10, 3e-3),
         ]
         for text, x, y, xtext, ytext in annotations:
@@ -93,7 +93,7 @@ class TheCrSpectrum:
                  (r'$e^+$', 0.85e1, 2e0),
                  (r'$\bar{p}$', 2.2, 1.4e-2),
                  (r'$p$', 7, 0.7e3),
-                 (r'$\nu + \bar{\nu}$', 0.5e6, 1e-5),
+                 (r'$\nu + \bar{\nu}$', 0.5e6, 2.5e-4),
                  (r'$\gamma$', 0.5e2, 1.8e-2),
                  (r'$\gamma$ IGRB', 0.9e3, 3e-5),
         ]
@@ -166,6 +166,18 @@ class TheCrSpectrum:
             self.plot_line(ax, f'{pdir}AMS-02_allParticles_energy.txt', self.colors['AMS-02'])
             self.plot_line(ax, f'{pdir}CREAM_allParticles_energy.txt', self.colors['CREAM'])
 
+    def neutrinos(self, ax):
+        """Plot neutrino measurements with error bars."""
+        filename = 'data/tables/IceCube_nus_energy.txt'
+        self.plot_data_diffuse(ax, filename, self.colors['IceCube'])
+
+    def gammas(self, ax):
+        """Plot ... with error bars."""
+        filename = 'data/tables/FERMI_igrb_energy.txt'
+        self.plot_data_diffuse(ax, filename, self.colors['FERMI'])
+        filename = 'data/tables/FERMI_inner_energy.txt'
+        self.plot_data_diffuse(ax, filename, self.colors['FERMI'])
+
     def plot_data(self, ax, filename, fmt, color, zorder=1):
         """Plot data with error bars."""
         E, dJdE, errStatLo, errStatUp, errSysLo, errSysUp = np.loadtxt(
@@ -189,18 +201,12 @@ class TheCrSpectrum:
         E, dJdE = np.loadtxt(filename, usecols=(0, 1), unpack=True)
         ax.plot(E, E**2 * dJdE, color=color)
 
-    def plot_data_inner(self, ax, filename, color):
-        """Plot inner data (special case)."""
-        E, E2I = np.loadtxt(filename, usecols=(0, 1), unpack=True)
-        ax.plot(E, E2I, 'o', markeredgecolor=color, markeredgewidth=1.5, color=color, mfc='white')
-
     def plot_data_diffuse(self, ax, filename, color):
         """Plot diffuse data."""
         x, dxLo, dxUp, y, dyLo, dyUp = np.loadtxt(filename, skiprows=1, usecols=(0, 1, 2, 3, 4, 5), unpack=True)
         ind = dyLo < y
         ax.errorbar(x[ind], y[ind], yerr=[dyLo[ind], dyUp[ind]], xerr=[dxLo[ind], dxUp[ind]],
                     fmt='o', markeredgecolor=color, color=color, elinewidth=1.5, capthick=1.5, mfc='white')
-
         ind_upper = dyLo > y
         ax.errorbar(x[ind_upper], y[ind_upper], xerr=[dxLo[ind_upper], dxUp[ind_upper]], yerr=0.25 * y[ind_upper], uplims=True,
                     fmt='o', markeredgecolor=color, color=color, elinewidth=1.5, capthick=1.5, mfc='white')

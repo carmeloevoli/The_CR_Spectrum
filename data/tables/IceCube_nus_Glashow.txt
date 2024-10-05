@@ -1,0 +1,5 @@
+# From plot: F. Halzen, https://indico.gssi.it/event/632/contributions/2167/
+# Aartsen et al., Nature, 2021
+5.45861e+6 6.30962e+6 7.35337e+6 8.08384e-10 1.90003e-9 1.12373e-8
+3.99707e+6 4.62022e+6 5.36981e+6 -1          3.81691e-8 -1
+7.43422e+6 8.54639e+6 9.87879e+6 -1          2.42771e-7 -1  
