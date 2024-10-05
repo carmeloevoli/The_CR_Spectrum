@@ -77,9 +77,9 @@ class TheCrSpectrum:
     
     def annotate(self, ax):
         """Annotates specific points on the plot."""
-        s_LHC = 14e3 # GeV
+        s_LHC = 14e3**2.0 # GeV2
         proton_mass = 0.938 # GeV
-        E_LHC = 2. * np.power(s_LHC, 2) / proton_mass
+        E_LHC = 0.5 * s_LHC / proton_mass
         annotations = [
             ('LHC', E_LHC, 1e-7, E_LHC, 1e-6),
             ('Knee', 2.8e6, 1., 2.5e5, 1.3e-1),
