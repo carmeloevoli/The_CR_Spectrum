@@ -13,10 +13,11 @@ plt.style.use('./allcrs.mplstyle')
 
 # Utility function to save figure
 def MySaveFig(fig, pltname, pngsave=False):
-    print(f"Saving plot as {pltname}.pdf")
     if pngsave:
         fig.savefig(f"{pltname}.png", bbox_inches='tight', dpi=300)
+        print(f"Saving plot as {pltname}.png")
     fig.savefig(f"{pltname}.pdf", bbox_inches='tight', dpi=300)
+    print(f"Saving plot as {pltname}.pdf")
 
 class TheCrSpectrum:
     """Class for plotting cosmic ray spectrum data."""
@@ -59,8 +60,9 @@ class TheCrSpectrum:
         """Configures the x and y axes for the plot."""
         ax.minorticks_off()
         ax.set_xscale('log')
-        ax.set_xlim([1, 1e12])
-        ax.set_xlabel('Energy [GeV]')
+        ax.set_xlim([.1, 1e12])
+        ax.set_xticks([1e0, 1e3, 1e6, 1e9, 1e12])
+        ax.set_xlabel('Kinetic Energy [GeV]')
         ax.set_yscale('log')
         ax.set_ylim([1e-7, 1e4])
         ax.set_ylabel(r'E$^{2}$ Intensity [GeV m$^{-2}$ s$^{-1}$ sr$^{-1}$]')
@@ -69,9 +71,9 @@ class TheCrSpectrum:
         ax2 = ax.twiny()
         ax2.minorticks_off()
         ax2.set_xscale('log')
-        ax2.set_xlabel('Energy [J]', color='tab:blue', labelpad=18)
+        ax2.set_xlabel('Kinetic Energy [J]', color='tab:blue', labelpad=18)
         eV2Joule = 1.60218e-19
-        ax2.set_xlim([1e9 * eV2Joule, 1e21 * eV2Joule])
+        ax2.set_xlim([.1 * 1e9 * eV2Joule, 1e21 * eV2Joule])
         ax2.set_xticks([1e-10, 1e-8, 1e-6, 1e-4, 1e-2, 1e0, 1e2])
         ax2.tick_params(axis='x', colors='tab:blue')
     
@@ -101,20 +103,23 @@ class TheCrSpectrum:
             ax.text(x, y, text, fontsize=20)
 
         # Add fill between for the E2dNdEdOmega data
-        E = np.logspace(0, 15)
-        E2dNdEdOmega = E * 1. / 4. / math.pi # m2/s
-        ax.text(0.4e4, 0.8e3, r'1/m$^2$/s', fontsize=16, color='tab:gray', rotation=50)
-        ax.fill_between(E, E2dNdEdOmega, 1e4, alpha=0.12, lw=0, facecolor='tab:gray', edgecolor='tab:gray')
+        E = np.logspace(-1, 12) # GeV
+        N = 1. # m-2 s-1
+        E2I = 1.7 * N * E / 4. / math.pi # m-2 s-1 GeV sr-1
+        ax.text(0.3e4, 0.8e3, r'1/m$^2$/s', fontsize=16, color='tab:gray', rotation=50)
+        ax.fill_between(E, E2I, 1e4, alpha=0.12, lw=0, facecolor='tab:gray', edgecolor='tab:gray')
 
-        E2dNdEdOmega = E * 1. / 3.14e7 / 4. / math.pi # m2/yr
-        ax.text(4e10, 0.3e3, r'1/m$^2$/yr', fontsize=16, color='tab:gray', rotation=50)
-        ax.fill_between(E, E2dNdEdOmega, 1e4, alpha=0.12, lw=0, facecolor='tab:gray', edgecolor='tab:gray')
+        N = 1. / 3.14e7 # m-2 yr-1
+        E2I = 1.7 * N * E / 4. / math.pi # m-2 s-1 GeV sr-1
+        ax.text(3.1e10, 0.3e3, r'1/m$^2$/yr', fontsize=16, color='tab:gray', rotation=50)
+        ax.fill_between(E, E2I, 1e4, alpha=0.12, lw=0, facecolor='tab:gray', edgecolor='tab:gray')
 
-        E2dNdEdOmega = E * 1. / 3.14e7 / 1e6 / 4. / math.pi # km2/yr
-        ax.text(2.25e10, 1.6e-4, r'1/km$^2$/yr', fontsize=16, color='tab:gray', rotation=50)
-        ax.fill_between(E, E2dNdEdOmega, 1e4, alpha=0.12, lw=0, facecolor='tab:gray', edgecolor='tab:gray')
+        N = 1. / 3.14e7 / 1e6 # km-2 yr-1
+        E2I = 1.7 * N * E / 4. / math.pi # m-2 s-1 GeV sr-1
+        ax.text(2.1e10, 1.95e-4, r'1/km$^2$/yr', fontsize=16, color='tab:gray', rotation=50)
+        ax.fill_between(E, E2I, 1e4, alpha=0.12, lw=0, facecolor='tab:gray', edgecolor='tab:gray')
 
-        ax.fill_between(E, E2dNdEdOmega, 1e-10, alpha=0.06, lw=0, facecolor='tab:gray', edgecolor='tab:gray')
+        ax.fill_between(E, E2I, 1e-10, alpha=0.06, lw=0, facecolor='tab:gray', edgecolor='tab:gray')
 
         ax.text(1.1e12, 2e-1, r'github.com/carmeloevoli/The_CR_Spectrum', rotation=-90, fontsize=11, color='tab:gray')
 

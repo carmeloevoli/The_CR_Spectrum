@@ -73,57 +73,47 @@ def dump_datafile(quantity, energyType, expName, subExpName, filename, combo_lev
 def main():
     experiments = [
         # Positrons
-        ('e+', 'ETOT', 'AMS02', 'AMS02 (2011/05-2018/05)', 'AMS-02_e+_energy.txt'),
-        ('e+', 'ETOT', 'FERMI', 'Fermi-LAT  (2008/06-2011/04)', 'FERMI_e+_energy.txt'),
-        ('e+', 'ETOT', 'PAMELA', 'PAMELA (2006/07-2009/12)', 'PAMELA_e+_energy.txt'),
+        ('e+', 'EK', 'AMS02', 'AMS02 (2011/05-2018/05)', 'AMS-02_e+_energy.txt'),
+        ('e+', 'EK', 'FERMI', 'Fermi-LAT  (2008/06-2011/04)', 'FERMI_e+_energy.txt'),
+        ('e+', 'EK', 'PAMELA', 'PAMELA (2006/07-2009/12)', 'PAMELA_e+_energy.txt'),
         
         # Antiprotons
-        ('1H-bar', 'ETOT', 'AMS02', 'AMS02 (2011/05-2018/05)', 'AMS-02_pbar_energy.txt'),
-        ('1H-bar', 'ETOT', 'BESS', 'BESS-PolarII (2007/12-2008/01)', 'BESS_pbar_energy.txt'),
-        ('1H-bar', 'ETOT', 'PAMELA', 'PAMELA (2006/07-2009/12)', 'PAMELA_pbar_energy.txt'),
+        ('1H-bar', 'EK', 'AMS02', 'AMS02 (2011/05-2018/05)', 'AMS-02_pbar_energy.txt'),
+        ('1H-bar', 'EK', 'BESS', 'BESS-PolarII (2007/12-2008/01)', 'BESS_pbar_energy.txt'),
+        ('1H-bar', 'EK', 'PAMELA', 'PAMELA (2006/07-2009/12)', 'PAMELA_pbar_energy.txt'),
         
         # Leptons
-        ('e-+e+', 'ETOT', 'AMS02', 'AMS02 (2011/05-2018/05)', 'AMS-02_e-e+_energy.txt'),
-        ('e-+e+', 'ETOT', 'CALET', 'CALET (2015/10-2017/11)', 'CALET_e-e+_energy.txt'),
-        ('e-+e+', 'ETOT', 'DAMPE', 'DAMPE (2015/12-2017/06)', 'DAMPE_e-e+_energy.txt'),
-        ('e-+e+', 'ETOT', 'FERMI', 'Fermi-LAT-HE (2008/08-2015/06)', 'FERMI_e-e+_energy.txt'),
-        ('e-+e+', 'ETOT', 'HESS', 'H.E.S.S. (2004/10-2007/08)', 'HESS_e-e+_energy.txt'),
+        ('e-+e+', 'EK', 'AMS02', 'AMS02 (2011/05-2018/05)', 'AMS-02_e-e+_energy.txt'),
+        ('e-+e+', 'EK', 'CALET', 'CALET (2015/10-2017/11)', 'CALET_e-e+_energy.txt'),
+        ('e-+e+', 'EK', 'DAMPE', 'DAMPE (2015/12-2017/06)', 'DAMPE_e-e+_energy.txt'),
+        ('e-+e+', 'EK', 'FERMI', 'Fermi-LAT-HE (2008/08-2015/06)', 'FERMI_e-e+_energy.txt'),
+        ('e-+e+', 'EK', 'HESS', 'H.E.S.S. (2004/10-2007/08)', 'HESS_e-e+_energy.txt'),
  
         # Protons
-        ('H', 'ETOT', 'AMS02', 'AMS02 (2011/05-2018/05)', 'AMS-02_H_energy.txt'),
-        ('H', 'ETOT', 'BESS', 'BESS-TeV (2002/08)', 'BESS_H_energy.txt'),
-        ('H', 'ETOT', 'CALET', 'CALET (2015/10-2021/12)', 'CALET_H_energy.txt'),
-        ('H', 'ETOT', 'CREAM', 'CREAM-I+III (2004+2007)', 'CREAM_H_energy.txt'),
-        ('H', 'ETOT', 'DAMPE', 'DAMPE (2016/01-2018/06)', 'DAMPE_H_energy.txt'),
-        ('H', 'ETOT', 'KASCADE', 'KASCADE (1996/10-2002/01) SIBYLL 2.1', 'KASCADE_H_energy.txt'),
-        ('H', 'ETOT', 'KASCADE-Grande', 'KASCADE-Grande (2003/12-2011/10) SIBYLL2.3', 'KASCADE-Grande_H_energy.txt'),
-        ('H', 'ETOT', 'PAMELA', 'PAMELA (2006/07-2008/12)', 'PAMELA_H_energy.txt'),
+        ('H', 'EK', 'AMS02', 'AMS02 (2011/05-2018/05)', 'AMS-02_H_energy.txt'),
+        ('H', 'EK', 'BESS', 'BESS-TeV (2002/08)', 'BESS_H_energy.txt'),
+        ('H', 'EK', 'CALET', 'CALET (2015/10-2021/12)', 'CALET_H_energy.txt'),
+        ('H', 'EK', 'CREAM', 'CREAM-I+III (2004+2007)', 'CREAM_H_energy.txt'),
+        ('H', 'EK', 'DAMPE', 'DAMPE (2016/01-2018/06)', 'DAMPE_H_energy.txt'),
+        ('H', 'EK', 'KASCADE', 'KASCADE (1996/10-2002/01) SIBYLL 2.1', 'KASCADE_H_energy.txt'),
+        ('H', 'EK', 'KASCADE-Grande', 'KASCADE-Grande (2003/12-2011/10) SIBYLL2.3', 'KASCADE-Grande_H_energy.txt'),
+        ('H', 'EK', 'PAMELA', 'PAMELA (2006/07-2008/12)', 'PAMELA_H_energy.txt'),
 
-        # AllParticles
-        ('AllParticles', 'ETOT', 'AUGER', 'Auger SD750+SD1500 (2014/01-2018/08)', 'AUGER_allParticles_energy.txt'),
-        ('AllParticles', 'ETOT', 'HAWC', 'HAWC (2018-2019) QGSJet-II-04', 'HAWC_allParticles_energy.txt'),
-        ('AllParticles', 'ETOT', 'IceCube', 'IceCube+IceTop (2010/06-2013/05) SIBYLL2.1', 'IceCube_allParticles_energy.txt'),
-        ('AllParticles', 'ETOT', 'KASCADE-Grande', 'KASCADE-Grande (2003/01-2009/03) QGSJet-II-04', 'KASCADE-Grande_allParticles_energy.txt'),
-        ('AllParticles', 'ETOT', 'KASCADE', 'KASCADE (1996/10-2002/01) SIBYLL 2.1', 'KASCADE_allParticles_energy.txt'),
-        ('AllParticles', 'ETOT', 'NUCLEON', 'NUCLEON-KLEM (2015/07-2017/06)', 'NUCLEON_allParticles_energy.txt'),
-        ('AllParticles', 'ETOT', 'Telescope', 'Telescope Array Hybrid (2008/01-2015/05)', 'TA_allParticles_energy.txt'),
-        ('AllParticles', 'ETOT', 'Tunka', 'TUNKA-133 Array (2009/10-2012/04) QGSJet01', 'TUNKA-133_allParticles_energy.txt'),
-    
         # Nuclei AMS-02
-        ('He', 'ETOT', 'AMS02', 'AMS02 (2011/05-2018/05)', 'AMS-02_He_energy.txt'),
-        ('Li', 'ETOT', 'AMS02', 'AMS02 (2011/05-2018/05)', 'AMS-02_Li_energy.txt'),
-        ('Be', 'ETOT', 'AMS02', 'AMS02 (2011/05-2018/05)', 'AMS-02_Be_energy.txt'),
-        ('B', 'ETOT', 'AMS02', 'AMS02 (2011/05-2018/05)', 'AMS-02_B_energy.txt'),
-        ('C', 'ETOT', 'AMS02', 'AMS02 (2011/05-2018/05)', 'AMS-02_C_energy.txt'),
-        ('N', 'ETOT', 'AMS02', 'AMS02 (2011/05-2018/05)', 'AMS-02_N_energy.txt'),
-        ('O', 'ETOT', 'AMS02', 'AMS02 (2011/05-2018/05)', 'AMS-02_O_energy.txt'),
-        ('F', 'ETOT', 'AMS02', 'AMS02 (2011/05-2021/05)', 'AMS-02_F_energy.txt'),
-        ('Ne', 'ETOT', 'AMS02', 'AMS02 (2011/05-2018/05)', 'AMS-02_Ne_energy.txt'),
-        ('Na', 'ETOT', 'AMS02', 'AMS02 (2011/05-2019/10)', 'AMS-02_Na_energy.txt'),
-        ('Mg', 'ETOT', 'AMS02', 'AMS02 (2011/05-2018/05)', 'AMS-02_Mg_energy.txt'),
-        ('Si', 'ETOT', 'AMS02', 'AMS02 (2011/05-2018/05)', 'AMS-02_Si_energy.txt'),
-        ('S', 'ETOT', 'AMS02', 'AMS02 (2011/05-2021/05)', 'AMS-02_S_energy.txt'),
-        ('Fe', 'ETOT', 'AMS02', 'AMS02 (2011/05-2019/10)', 'AMS-02_Fe_energy.txt'),
+        ('He', 'EK', 'AMS02', 'AMS02 (2011/05-2018/05)', 'AMS-02_He_energy.txt'),
+        ('Li', 'EK', 'AMS02', 'AMS02 (2011/05-2018/05)', 'AMS-02_Li_energy.txt'),
+        ('Be', 'EK', 'AMS02', 'AMS02 (2011/05-2018/05)', 'AMS-02_Be_energy.txt'),
+        ('B', 'EK', 'AMS02', 'AMS02 (2011/05-2018/05)', 'AMS-02_B_energy.txt'),
+        ('C', 'EK', 'AMS02', 'AMS02 (2011/05-2018/05)', 'AMS-02_C_energy.txt'),
+        ('N', 'EK', 'AMS02', 'AMS02 (2011/05-2018/05)', 'AMS-02_N_energy.txt'),
+        ('O', 'EK', 'AMS02', 'AMS02 (2011/05-2018/05)', 'AMS-02_O_energy.txt'),
+        ('F', 'EK', 'AMS02', 'AMS02 (2011/05-2021/05)', 'AMS-02_F_energy.txt'),
+        ('Ne', 'EK', 'AMS02', 'AMS02 (2011/05-2018/05)', 'AMS-02_Ne_energy.txt'),
+        ('Na', 'EK', 'AMS02', 'AMS02 (2011/05-2019/10)', 'AMS-02_Na_energy.txt'),
+        ('Mg', 'EK', 'AMS02', 'AMS02 (2011/05-2018/05)', 'AMS-02_Mg_energy.txt'),
+        ('Si', 'EK', 'AMS02', 'AMS02 (2011/05-2018/05)', 'AMS-02_Si_energy.txt'),
+        ('S', 'EK', 'AMS02', 'AMS02 (2011/05-2021/05)', 'AMS-02_S_energy.txt'),
+        ('Fe', 'EK', 'AMS02', 'AMS02 (2011/05-2019/10)', 'AMS-02_Fe_energy.txt'),
 
         # Nuclei CREAM
         ('He', 'ETOT', 'CREAM', 'CREAM-I+III (2004+2007)', 'CREAM_He_energy.txt'),
@@ -134,6 +124,16 @@ def main():
         ('Mg', 'ETOT', 'CREAM', 'CREAM-II (2005/12-2006/01)', 'CREAM_Mg_energy.txt'),
         ('Si', 'ETOT', 'CREAM', 'CREAM-II (2005/12-2006/01)', 'CREAM_Si_energy.txt'),
         ('Fe', 'ETOT', 'CREAM', 'CREAM-II (2005/12-2006/01)', 'CREAM_Fe_energy.txt'),
+
+        # AllParticles
+        ('AllParticles', 'ETOT', 'AUGER', 'Auger SD750+SD1500 (2014/01-2018/08)', 'AUGER_allParticles_energy.txt'),
+        ('AllParticles', 'ETOT', 'HAWC', 'HAWC (2018-2019) QGSJet-II-04', 'HAWC_allParticles_energy.txt'),
+        ('AllParticles', 'ETOT', 'IceCube', 'IceCube+IceTop (2010/06-2013/05) SIBYLL2.1', 'IceCube_allParticles_energy.txt'),
+        ('AllParticles', 'ETOT', 'KASCADE-Grande', 'KASCADE-Grande (2003/01-2009/03) QGSJet-II-04', 'KASCADE-Grande_allParticles_energy.txt'),
+        ('AllParticles', 'ETOT', 'KASCADE', 'KASCADE (1996/10-2002/01) SIBYLL 2.1', 'KASCADE_allParticles_energy.txt'),
+        ('AllParticles', 'ETOT', 'NUCLEON', 'NUCLEON-KLEM (2015/07-2017/06)', 'NUCLEON_allParticles_energy.txt'),
+        ('AllParticles', 'ETOT', 'Telescope', 'Telescope Array Hybrid (2008/01-2015/05)', 'TA_allParticles_energy.txt'),
+        ('AllParticles', 'ETOT', 'Tunka', 'TUNKA-133 Array (2009/10-2012/04) QGSJet01', 'TUNKA-133_allParticles_energy.txt'),
     ]
 
     for exp in experiments:
