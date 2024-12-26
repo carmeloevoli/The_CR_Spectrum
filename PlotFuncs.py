@@ -62,7 +62,7 @@ class TheCrSpectrum:
         ax.set_xscale('log')
         ax.set_xlim([.1, 1e12])
         ax.set_xticks([1e0, 1e3, 1e6, 1e9, 1e12])
-        ax.set_xlabel('Kinetic Energy [GeV]')
+        ax.set_xlabel('Energy [GeV]')
         ax.set_yscale('log')
         ax.set_ylim([1e-7, 1e4])
         ax.set_ylabel(r'E$^{2}$ Intensity [GeV m$^{-2}$ s$^{-1}$ sr$^{-1}$]')
@@ -71,7 +71,7 @@ class TheCrSpectrum:
         ax2 = ax.twiny()
         ax2.minorticks_off()
         ax2.set_xscale('log')
-        ax2.set_xlabel('Kinetic Energy [J]', color='tab:blue', labelpad=18)
+        ax2.set_xlabel('Energy [J]', color='tab:blue', labelpad=18)
         eV2Joule = 1.60218e-19
         ax2.set_xlim([.1 * 1e9 * eV2Joule, 1e21 * eV2Joule])
         ax2.set_xticks([1e-10, 1e-8, 1e-6, 1e-4, 1e-2, 1e0, 1e2])
@@ -102,7 +102,7 @@ class TheCrSpectrum:
         for text, x, y in texts:
             ax.text(x, y, text, fontsize=20)
 
-        # Add fill between for the E2dNdEdOmega data
+        # Show N(>E) regions
         E = np.logspace(-1, 12) # GeV
         N = 1. # m-2 s-1
         E2I = 1.7 * N * E / 4. / math.pi # m-2 s-1 GeV sr-1
@@ -121,6 +121,7 @@ class TheCrSpectrum:
 
         ax.fill_between(E, E2I, 1e-10, alpha=0.06, lw=0, facecolor='tab:gray', edgecolor='tab:gray')
 
+        # Add credits
         ax.text(1.1e12, 2e-1, r'github.com/carmeloevoli/The_CR_Spectrum', rotation=-90, fontsize=11, color='tab:gray')
 
     def experiment_legend(self, ax):
