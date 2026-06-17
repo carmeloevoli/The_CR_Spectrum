@@ -7,12 +7,14 @@ Please email me [carmelo.evoli@gssi.it] or make a pull request if you would like
 
 For the collection of the CR data I'm pleased to acknowledge the use of the [CRDB database v4.1](http://lpsc.in2p3.fr/crdb) ([reference](https://ui.adsabs.harvard.edu/abs/2023EPJC...83..971M/abstract))
 
+Most charged-particle spectra are read directly from the linked `kiss_tables/` folder. The converted gamma-ray and neutrino tables are kept in `data/output/`.
+
 ### <a name="crspectrum"></a>
 ### The Spectrum plot
 
-<img src="figures/The_CR_Spectrum_2024.png" width="800">
+<img src="figures/The_CR_Spectrum_2026.png" width="800">
 
-Download: [png](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/figures/The_CR_Spectrum_2024.png), [pdf](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/figures/The_CR_Spectrum_2024.pdf)
+Download: [png](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/figures/The_CR_Spectrum_2026.png), [pdf](https://github.com/carmeloevoli/The_CR_Spectrum/blob/master/figures/The_CR_Spectrum_2026.pdf)
 
 ### How to cite it
 

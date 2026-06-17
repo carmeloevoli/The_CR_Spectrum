@@ -22,4 +22,4 @@ plot.experiment_legend(ax)
 plot.annotate(ax)
 
 # Save the figure
-MySaveFig(fig, 'figures/The_CR_Spectrum_2024', pngsave=True)
+MySaveFig(fig, 'figures/The_CR_Spectrum_2026', pngsave=True)

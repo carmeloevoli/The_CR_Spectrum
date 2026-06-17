@@ -1,0 +1,11 @@
+# Source: arXiv:2305.05372
+# Table: S3
+# Region: outer Galaxy
+# Instrument: LHAASO-KM2A
+# Original table units: E in TeV; phi, stat, and sys in TeV^-1 cm^-2 s^-1 sr^-1
+# Columns: logErec_min logErec_max E_TeV phi stat_lo stat_up sys
+1.0 1.4 15.8 1.20e-13 0.22e-13 0.22e-13 0.26e-13
+1.4 1.8 39.8 1.09e-14 0.14e-14 0.14e-14 0.12e-14
+1.8 2.2 100.0 4.91e-16 0.94e-16 0.94e-16 0.74e-16
+2.2 2.6 251.2 3.22e-17 0.59e-17 0.61e-17 1.12e-17
+2.6 3.0 631.0 2.77e-18 0.72e-18 0.77e-18 0.97e-18
