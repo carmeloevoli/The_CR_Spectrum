@@ -64,7 +64,7 @@ class TheCrSpectrum:
         'HESS': '#00B7EB',
         'IceCube': '#8A2BE2',
         'Icetop+Icecube': '#00C8B8',
-        'KM3NeT': '#D7263D',
+        'KM3NeT': '#141E3C',
         'KASCADE': '#D49400',
         'KASCADE-Grande': '#C7A000',
         'LHAASO': '#FF1493',
